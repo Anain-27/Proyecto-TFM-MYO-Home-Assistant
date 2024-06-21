@@ -59,7 +59,7 @@ param_grid = {
 # Entrenar el clasificador
 print('Comienza el training')
 # Crear y entrenar el modelo con GridSearchCV para encontrar los mejores hiperparámetros
-grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2)
+grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=-1)
 grid.fit(X_train, y_train)
 print('salgo')
 
