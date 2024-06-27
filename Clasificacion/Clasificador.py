@@ -37,7 +37,7 @@ y_train_df = pd.DataFrame(y_train)
 
 
 # Usar una muestra aleatoria de 50,000 filas para pruebas iniciales
-sample_size = 5000
+sample_size = 50000
 X_train_sample = X_train_df.sample(n=sample_size, random_state=50)
 y_train_sample = y_train_df.loc[X_train_sample.index]
 
@@ -51,7 +51,7 @@ model = svm.SVC(kernel='poly')
 # Definir el grid de parámetros a buscar
 param_grid = {
     'C': [0.1, 1, 10, 100],
-    'degree': [2],
+    'degree': [2,3,4,5],
     'gamma': ['scale', 'auto', 0.1, 0.01, 0.001],
     'coef0': [0.0, 0.5, 1.0]
 }
@@ -59,12 +59,12 @@ param_grid = {
 # Entrenar el clasificador
 print('Comienza el training')
 # Crear y entrenar el modelo con GridSearchCV para encontrar los mejores hiperparámetros
-grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=-1)
-grid.fit(X_train, y_train)
-print('salgo')
+grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=10)
+grid.fit(X_train_sample, y_train_sample)
+
 
 #Guardamos el modelo
-joblib.dump(grid, 'clasificador_svm_poly2.pkl')
+joblib.dump(grid, 'clasificador_svm_poly_total.pkl')
 
 # Predecir etiquetas para los datos de prueba
 y_pred = grid.predict(X_test)
