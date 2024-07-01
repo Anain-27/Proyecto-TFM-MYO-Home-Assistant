@@ -1,107 +1,102 @@
 import time
 import multiprocessing
 import numpy as np
-import subprocess
+from collections import Counter
 from pyomyo import Myo, emg_mode
 from joblib import load
+from sklearn.preprocessing import StandardScaler
+import subprocess
 
 # Cargar el clasificador preentrenado
-classifier = load('path/to/your/classifier.pkl')
+classifier = load('C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\entrenado_svm_poly_model.pkl')
+
+# Cargar el scaler preentrenado
+scaler = load('C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\scaler.pkl')
+
+
+# Función para la limpieza de datos EMG
+def limpieza(emg_data):
+    # Rectificación (valor absoluto)
+    emg_rectified = np.abs(emg_data)
+
+    # Escalado
+    emg_rectified = emg_rectified.reshape(1, -1)  # Reformar para que tenga la forma correcta
+    emg_scaled = scaler.transform(emg_rectified)
+
+    return emg_scaled
+
 
 # Función para clasificar los datos EMG
 def classify_emg(emg_data):
-    emg_data = np.array(emg_data).reshape(1, -1)
+    emg_data = limpieza(emg_data)  # Aplicar la limpieza antes de clasificar
     label = classifier.predict(emg_data)
     return label[0]  # Asumimos que el clasificador devuelve una lista
 
-# Función para ejecutar un comando curl
-def execute_curl(url):
-    subprocess.run([curl_command, url], check=True)
 
-#Definamos los diferentes curl
-# Definir los argumentos del comando curl
-url = "http://raspberrypi.local:8123/api/services/switch/turn_off"
-auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkZjNkNjY1OTA5Yzg0MTI4YTViYTRmMzliYmVkZGRjMSIsImlhdCI6MTcxNjE0MTgxMiwiZXhwIjoyMDMxNTAxODEyfQ.1gcdIXy9KmEtm3RTX5gvFqWzhksu410atZUg_dA1Ews"
-json_file_path = "C:\\Users\\anita\\body.json"
+# Función para encontrar la etiqueta más común y su porcentaje
+def mas_comun(labels):
+    if labels:
+        total_count = len(labels)
+        counter = Counter(labels)
+        most_common_label, count = counter.most_common(1)[0]
+        percentage = count / total_count * 100
+        return most_common_label, percentage
+    return None, 0
 
-# Crear la lista de argumentos
-curl_command = [
-    "curl",
-    "-X", "POST",
-    "-H", f"Authorization: Bearer {auth_token}",
-    "-H", "Content-Type: application/json",
-    "-d", f"@{json_file_path}",
-    url
-]
 
-# Diccionario de acciones
-def handle_label_1():
-    execute_curl('http://example.com/endpoint1')
-
-def handle_label_2():
-    execute_curl('http://example.com/endpoint2')
-
-def handle_label_3():
-    execute_curl('http://example.com/endpoint3')
-
-# Diccionario que simula un switch-case
-label_actions = {
-    'label_1': handle_label_1,
-    'label_2': handle_label_2,
-    'label_3': handle_label_3
-}
-
-def data_worker(mode, seconds):
+def data_worker(mode, seconds,comienzo):
     collect = True
+    start_time = time.time()
+    last_print_time = comienzo
+    decisions = []  # Lista para almacenar las decisiones del clasificador
 
     # ------------ Myo Setup ---------------
     m = Myo(mode=mode)
     m.connect()
 
-    tiempo = 0
+    def label_emg(emg, movement):
+        nonlocal collect, last_print_time, decisions
+        current_time = time.time()
+        elapsed_time = current_time - start_time
 
-    def save_emg(emg, movement):
+
+        if current_time - last_print_time >= 1:
+            # Calcular la etiqueta más común y su porcentaje hasta el momento
+            most_common_label, percentage = mas_comun(decisions)
+            if most_common_label is not None:
+                print(f"Segundo {int(elapsed_time)}: Etiqueta más común: {most_common_label}, Porcentaje: {percentage:.2f}%")
+
+            last_print_time = current_time  # Actualizar el último tiempo de impresión
+
+            # Limpiar la lista de decisiones para comenzar de nuevo
+            decisions = []
 
 
-        # Clasificar los datos EMG en tiempo real
-        label = classify_emg(emg)
-        print(f"Tiempo: {tiempo}, EMG: {emg}, Label: {label}")
+        if elapsed_time >= comienzo:
+            # Clasificar los datos EMG en tiempo real después de 1 segundo
+            label = classify_emg(emg)
+            decisions.append(label)  # Almacenar la decisión
 
-        # Ejecutar la acción correspondiente a la etiqueta
-        action = label_actions.get(label)
-        if action:
-            action()
-        else:
-            print(f"Etiqueta no reconocida: {label}")
+        # Detener la recolección después de segundos segundos
+        if elapsed_time >= seconds:
+            collect = False
 
-    m.add_emg_handler(save_emg)
+    m.add_emg_handler(label_emg)
 
     m.set_leds([0, 128, 0], [0, 128, 0])
     m.vibrate(1)
 
-    print("Data Worker started to collect")
-    start_time = time.perf_counter()
-
     while collect:
-        if time.perf_counter() - start_time < seconds:
-            m.run()
-            tiempo = time.perf_counter() - start_time
-        else:
-            collect = False
-            vuelta = 2
-            collection_time = time.perf_counter() - start_time
-            print(f"Finished collecting.")
+        m.run()
 
-            m.vibrate(2)
-            m.disconnect()
+    m.vibrate(2)
+    m.disconnect()
 
-            print(f"Collection time: {collection_time}")
 
 if __name__ == '__main__':
-
-    seconds = 5
-
+    seconds = 6  # Total de 6 segundos de recolección (1 segundo esperando + 5 segundos clasificando cada segundo)
+    comienzo = 1  #Deley del principio de captación de datos
     mode = emg_mode.FILTERED
-    p = multiprocessing.Process(target=data_worker, args=(mode, seconds))
+    p = multiprocessing.Process(target=data_worker, args=(mode, seconds,comienzo))
 
     p.start()

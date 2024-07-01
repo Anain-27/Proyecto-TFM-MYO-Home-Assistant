@@ -27,9 +27,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+# Guardar el scaler
+joblib.dump(scaler, 'scaler.pkl')
+print("Scaler guardado como 'scaler.pkl'")
 
 # Crear clasificador SVM con núcleo polinomial
-model = svm.SVC(C=0.1, coef0=1.0, degree=3, gamma=0.1, kernel='poly')
+model = svm.SVC(C=100, coef0=1.0, degree=5, gamma='scale', kernel='poly')
 
 # Entrenar el clasificador
 print('Comienza el entrenamiento del modelo SVM...')
