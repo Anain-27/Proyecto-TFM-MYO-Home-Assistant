@@ -45,18 +45,17 @@ def verificar_fist(decisiones):
 def trabajador_datos(modo, t_captura_total, t_espera, t_captura_FIST):
     recolectar = True
     tiempo_inicio = time.time()
-    ultimo_tiempo_impresion = tiempo_inicio
+    ultimo_tiempo_impresion = t_espera
     decisiones = []  # Lista para almacenar las decisiones del clasificador
     buscando_fist = True
     tiempo_deteccion_fist = None
-    fist_detectado = False
 
     # ------------ Configuración Myo ---------------
     myo = Myo(mode=modo)
     myo.connect()
 
     def manejar_emg(emg, movimiento):
-        nonlocal recolectar, ultimo_tiempo_impresion, decisiones, buscando_fist, tiempo_deteccion_fist, fist_detectado
+        nonlocal recolectar, ultimo_tiempo_impresion, decisiones, buscando_fist, tiempo_deteccion_fist
         tiempo_actual = time.time()
         tiempo_transcurrido = tiempo_actual - tiempo_inicio
 
@@ -68,19 +67,17 @@ def trabajador_datos(modo, t_captura_total, t_espera, t_captura_FIST):
             if verificar_fist(decisiones):
                 tiempo_deteccion_fist = tiempo_actual  # Registrar el tiempo de detección de FIST
                 buscando_fist = False
-                fist_detectado = True  # Marcar que se ha detectado FIST
-                print("FIST detectado")
 
-        if not buscando_fist and tiempo_deteccion_fist:
-            tiempo_pasado = tiempo_actual - tiempo_deteccion_fist
-            if tiempo_pasado >= t_captura_FIST:
+        if tiempo_deteccion_fist:
+            if tiempo_actual - tiempo_deteccion_fist <= t_captura_FIST:
                 if tiempo_actual - ultimo_tiempo_impresion >= 1:
                     etiqueta_mas_comun, porcentaje = mas_comun(decisiones)
-                    print(f"Resultado más común después de 2 segundos: Etiqueta: {etiqueta_mas_comun}, Porcentaje: {porcentaje:.2f}%")
+                    print(f"Segundo {int(tiempo_transcurrido - t_espera)}: Etiqueta más común: {etiqueta_mas_comun}, Porcentaje: {porcentaje:.2f}%")
                     ultimo_tiempo_impresion = tiempo_actual
                     decisiones = []  # Reiniciar la lista de decisiones después de imprimir
-                    tiempo_deteccion_fist = None
-                    buscando_fist = True
+            else:
+                tiempo_deteccion_fist = None
+                buscando_fist = True
 
         # Detener la recolección después de t_captura_total segundos
         if tiempo_transcurrido >= t_captura_total:
@@ -100,7 +97,8 @@ def trabajador_datos(modo, t_captura_total, t_espera, t_captura_FIST):
 if __name__ == '__main__':
     t_captura_total = 20  # Total de tiempo de recolección
     t_espera = 1  # Delay del principio de captación de datos
-    t_captura_FIST = 2  # Capturar datos durante 2 segundos después de detectar "FIST"
+    t_captura_FIST = 2  # Capturar datos durante 6 segundos después de detectar "FIST"
     modo = emg_mode.FILTERED
     p = multiprocessing.Process(target=trabajador_datos, args=(modo, t_captura_total, t_espera, t_captura_FIST))
     p.start()
+

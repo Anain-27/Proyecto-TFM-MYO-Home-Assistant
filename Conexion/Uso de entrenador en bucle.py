@@ -5,6 +5,7 @@ from collections import Counter
 from pyomyo import Myo, emg_mode
 from joblib import load
 from sklearn.preprocessing import StandardScaler
+import subprocess
 
 # Cargar el clasificador preentrenado
 classifier = load('C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\entrenado_svm_poly_model.pkl')
@@ -32,66 +33,70 @@ def classify_emg(emg_data):
     return label[0]  # Asumimos que el clasificador devuelve una lista
 
 
-# Función para encontrar las decisiones más comunes con sus porcentajes
-def mas_comunes(labels):
+# Función para encontrar la etiqueta más común y su porcentaje
+def mas_comun(labels):
     if labels:
         total_count = len(labels)
         counter = Counter(labels)
-        sorted_labels = counter.most_common()
-        return [(label, count / total_count * 100) for label, count in sorted_labels]
-    return []
+        most_common_label, count = counter.most_common(1)[0]
+        percentage = count / total_count * 100
+        return most_common_label, percentage
+    return None, 0
 
 
-def data_worker(mode, seconds):
+def data_worker(mode, seconds,t_delay):
     collect = True
+    start_time = time.time()
+    last_print_time = t_delay
     decisiones_clasificador = []  # Lista para almacenar las decisiones del clasificador
 
     # ------------ Myo Setup ---------------
     m = Myo(mode=mode)
     m.connect()
 
-    start_time = time.perf_counter()  # Definir start_time aquí
-
     def label_emg(emg, movement):
-        nonlocal start_time  # Declarar start_time como nonlocal
-        tiempo = time.perf_counter() - start_time
-        if tiempo >= 1:
+        nonlocal collect, last_print_time, decisiones_clasificador
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+
+
+        if current_time - last_print_time >= 1:
+            # Calcular la etiqueta más común y su porcentaje hasta el momento
+            most_common_label, percentage = mas_comun(decisiones_clasificador)
+            if most_common_label is not None:
+                print(f"Segundo {int(elapsed_time-t_delay)}: Etiqueta más común: {most_common_label}, Porcentaje: {percentage:.2f}%")
+
+            last_print_time = current_time  # Actualizar el último tiempo de impresión
+
+            # Limpiar la lista de decisiones para comenzar de nuevo
+            decisiones_clasificador = []
+
+
+        if elapsed_time >= t_delay:
             # Clasificar los datos EMG en tiempo real después de 1 segundo
             label = classify_emg(emg)
             decisiones_clasificador.append(label)  # Almacenar la decisión
-            print(f"Tiempo: {tiempo:.2f} segundos, EMG: {emg}, Decisión del clasificador: {label}")
+
+        # Detener la recolección después de segundos segundos
+        if elapsed_time >= seconds:
+            collect = False
 
     m.add_emg_handler(label_emg)
 
     m.set_leds([0, 128, 0], [0, 128, 0])
     m.vibrate(1)
 
-    print("Data Worker started to collect")
-    start_time = time.perf_counter()
-
     while collect:
-        if time.perf_counter() - start_time < seconds:
-            m.run()
-        else:
-            collect = False
-            collection_time = time.perf_counter() - start_time
-            print("Finished collecting.")
+        m.run()
 
-            m.vibrate(2)
-            m.disconnect()
-
-            print(f"Collection time: {collection_time:.2f} segundos")
-
-            # Encontrar y mostrar las decisiones más comunes con sus porcentajes
-            common_labels = mas_comunes(decisiones_clasificador)
-            for label, percentage in common_labels:
-                print(f"Etiqueta: {label}, Porcentaje: {percentage:.2f}%")
+    m.vibrate(2)
+    m.disconnect()
 
 
 if __name__ == '__main__':
-    seconds = 2
-
+    seconds = 6  # Total de 6 segundos de recolección (coimienzo segundo esperando + x segundos clasificando cada segundo + 1 segundo final)
+    t_delay = 1  #Deley del principio de captación de datos
     mode = emg_mode.FILTERED
-    p = multiprocessing.Process(target=data_worker, args=(mode, seconds))
+    p = multiprocessing.Process(target=data_worker, args=(mode, seconds, t_delay))
 
     p.start()

@@ -7,7 +7,7 @@ from openpyxl import load_workbook
 
 from pyomyo import Myo, emg_mode
 
-# Ana: para marcar solo un comienzo y un fin
+# Ana: para marcar solo un t_delay y un fin
 vuelta = 0
 
 
