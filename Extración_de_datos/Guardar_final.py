@@ -163,8 +163,8 @@ if __name__ == '__main__':
 
     # Ana: Añado el nombre arm para ponerlo en el guardado de datos
     arm = "de_"
-    pos_brazo = "ManoArriba"
-    pose = "WAVE_OUT"
+    pos_brazo = "Estirado"
+    pose = "ARRIBA"
     num = "_5"
 
     # Ana: Guardar los datos en carpetas
