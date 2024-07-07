@@ -31,7 +31,7 @@ X_test_scaled = scaler.transform(X_test)
 joblib.dump(scaler, 'scaler.pkl')
 print("Scaler guardado como 'scaler.pkl'")
 
-# Crear clasificador SVM con núcleo polinomial
+# Crear clasificador SVM con núcleo polinomial 
 model = svm.SVC(C=100, coef0=1.0, degree=5, gamma='scale', kernel='poly')
 
 # Entrenar el clasificador
@@ -39,8 +39,9 @@ print('Comienza el entrenamiento del modelo SVM...')
 model.fit(X_train_scaled, y_train)
 
 # Guardar el modelo entrenado en un archivo
-joblib.dump(model, 'entrenado_svm_poly_model.pkl')
-print("Modelo guardado como 'entrenado_svm_poly_model.pkl'")
+joblib.dump(model, 'entrenado_svm_poly_model_dinamico.pkl')
+print(
+       "Modelo guardado como 'entrenado_svm_poly_model_dinamico.pkl'")
 
 # Predecir etiquetas para los datos de prueba
 y_pred = model.predict(X_test_scaled)
