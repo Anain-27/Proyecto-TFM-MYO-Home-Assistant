@@ -20,10 +20,9 @@ def filtrado_tiempo(df, rangos):
     return df_filtrado
 
 
-
 #Comenzamos definiendo el path de entrada y salida
-path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Extración_de_datos\\datos_jupyter\\'
-path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos'
+path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Extración_de_datos\\datos_con_IMU\\'
+path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\Con_IMU_Dinamicos'
 
 #Definimos los rangos de los que queremos captar los datos.
 rango= [(5, 10), (15, 20), (25, 30)]
@@ -40,8 +39,8 @@ for root, dirs, files in os.walk(path_entrada):
 
         # Para cada uno de los archivos vamos a leerlos transformarlos
         for file in excel_files:
-            # Leer el archivo de Excel
-            df_excel = pd.read_excel(file)
+            # Leer el archivo de Excel desde la hoja 'Datos'
+            df_excel = pd.read_excel(file, sheet_name='Datos')
 
             # Añadimos una columna en la que definiremos el gesto, que tenemos almacenado como nombre del directorio
             df_excel['pose'] = dir_name
@@ -49,15 +48,10 @@ for root, dirs, files in os.walk(path_entrada):
             # Filtramos los datos para obtener solo los del gesto
             df_filtrado = filtrado_tiempo(df_excel, rango)
 
-            #print(df_filtrado.head())  # Mostrar solo las primeras filas para verificación
-
             df = pd.concat([df, df_filtrado], ignore_index=True)
 
             # Mostrar el nombre del archivo y el DataFrame resultante
             print(f'Archivo procesado: {file}')
-
-
-
 
 # Crear el nombre para el archivo modificado
 new_file_name = os.path.join(path_salida, 'Datos_Completos.xlsx')

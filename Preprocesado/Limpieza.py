@@ -21,7 +21,7 @@ def integrar_df(df, window_size=10):
 
 
 #Comenzamos definiendo el path de entrada y salida
-path= 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\'
+path= 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\Con_IMU_Dinamicos\\'
 
 file  = path + 'Datos_Completos.xlsx'
 
