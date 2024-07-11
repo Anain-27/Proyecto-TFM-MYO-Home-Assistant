@@ -110,7 +110,7 @@ def data_worker(mode, seconds, collect, pos_buscada):
     # Its go time
     m.set_leds([0, 128, 0], [0, 128, 0])
     # Vibrate to know we connected okay
-    # m.vibrate(1)
+    m.vibrate(1)
     play_sound()
 
     print("Data Worker started to collect")
@@ -129,14 +129,14 @@ def data_worker(mode, seconds, collect, pos_buscada):
             # Pero lo vamos a implementar por si queremos más lo marcaremos cada 5 segundos el comenzar y terminar gestos
             if tiempo % 10 < 0.1:
                 if vuelta == 1 and tiempo > 1:
-                    # m.vibrate(1)
+                    m.vibrate(1)
                     play_sound()
                     print(f"Termina {pos_buscada}, tiempo: {tiempo}")
                     if vuelta != 2:
                         vuelta = 0
 
             elif tiempo % 5 < 0.1 and vuelta == 0 and tiempo > 1:
-                # m.vibrate(1)
+                m.vibrate(1)
                 play_sound()
                 print(f"Comienza {pos_buscada}, tiempo: {tiempo}")
                 if vuelta != 2:
@@ -149,7 +149,7 @@ def data_worker(mode, seconds, collect, pos_buscada):
             print(f"Finished collecting.")
 
             # Ana: Para que vibre al finalizar de captar los datos
-            # m.vibrate(2)
+            m.vibrate(2)
             play_sound()
             m.disconnect()
 
@@ -164,12 +164,12 @@ if __name__ == '__main__':
 
     # Ana: Añado el nombre arm para ponerlo en el guardado de datos
     arm = "de_"
-    pos_brazo = "Estirado"
-    pose = "UNO"
-    num = "_1"
+    pos_brazo = "90Grados"
+    pose = "CUATRO"
+    num = "_5"
 
     # Ana: Guardar los datos en carpetas
-    name = "datos_jupyter/" + pos_brazo + "/" + pose + "/"
+    name = "datos_raw/" + pos_brazo + "/" + pose + "/"
     file_name = str(name) + arm + pose + num + ".xlsx"
 
     # Ana: Guardar los datos para pruebas
