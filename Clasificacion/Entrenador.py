@@ -26,15 +26,7 @@ with open(registro_filename, 'a') as f:
 
     # Cargar datos desde el archivo Excel
     df = pd.read_eximport pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-from sklearn.metrics import classification_report, accuracy_score
-import joblib
-import time
-import os
-import sys
+
 
 # Definir las etiquetas de interés
 etiquetas_interes = ["ARRIBA", "FINGERS_SPREAD", "FIST", "GIRO_IN", "GIRO_OUT", "REST", "THUMB_TO_PINKY", "WAVE_IN",
