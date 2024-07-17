@@ -21,8 +21,8 @@ def filtrado_tiempo(df, rangos):
 
 
 #Comenzamos definiendo el path de entrada y salida
-path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos_df_nuevo\\'
-path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos_procesados \\Todos'
+path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_df_nuevo\\'
+path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados \\Todos'
 
 #Definimos los rangos de los que queremos captar los datos.
 rango= [(5, 10), (15, 20), (25, 30)]

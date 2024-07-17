@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-def convert_excel(input_filepath):
+def convert_excel(input_filepath, output_directory):
     # Leer los datos del archivo de entrada
     with pd.ExcelFile(input_filepath) as xls:
         emg_df = pd.read_excel(xls, sheet_name='EMG')
@@ -33,25 +33,34 @@ def convert_excel(input_filepath):
             for col in ["quat1", "quat2", "quat3", "quat4", "acc1", "acc2", "acc3", "gyro1", "gyro2", "gyro3"]:
                 combined_df.at[i, col] = closest_imu_row[col]
 
+    # Construir la ruta de salida y nombre de archivo
+    relative_path = os.path.relpath(input_filepath, start=root_directory)
+    output_filepath = os.path.join(output_directory, relative_path)
+
+    # Crear directorios si no existen
+    os.makedirs(os.path.dirname(output_filepath), exist_ok=True)
+
     # Guardar los datos combinados y originales en el mismo archivo Excel
-    with pd.ExcelWriter(input_filepath, engine='openpyxl') as writer:
+    with pd.ExcelWriter(output_filepath, engine='openpyxl') as writer:
         emg_df.to_excel(writer, sheet_name='EMG', index=False)
         imu_df.to_excel(writer, sheet_name='IMU', index=False)
         pose_df.to_excel(writer, sheet_name='Pose', index=False)
         combined_df.to_excel(writer, sheet_name='Datos', index=False)
 
-    print("Conversion complete. Excel saved at:", input_filepath)
+    print("Conversión completa. Excel guardado en:", output_filepath)
 
-def process_directory(root_directory):
+def process_directory(root_directory, output_directory):
     for root, dirs, files in os.walk(root_directory):
         for file in files:
             if file.endswith('.xlsx'):
                 file_path = os.path.join(root, file)
                 try:
-                    convert_excel(file_path)
+                    convert_excel(file_path, output_directory)
                 except Exception as e:
-                    print(f"Error processing {file_path}: {e}")
+                    print(f"Error procesando {file_path}: {e}")
 
 # Uso del script
-root_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Extración_de_datos\\datos_df_nuevo'
-process_directory(root_directory)
+root_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Extración_de_datos\\datos_raw'
+output_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_df_nuevo'
+process_directory(root_directory, output_directory)
+ 
