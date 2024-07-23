@@ -3,7 +3,12 @@ import pandas as pd
 from sklearn import svm
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import (
+    accuracy_score, classification_report, confusion_matrix,
+    precision_score, recall_score, f1_score,
+    roc_auc_score, average_precision_score, log_loss,
+    matthews_corrcoef, cohen_kappa_score, hamming_loss, jaccard_score
+)
 from sklearn.utils import shuffle  # Importar shuffle
 import joblib
 import time  # Importar la librería time
@@ -23,7 +28,6 @@ print(f'Tamaño del dataset: {df.shape}')
 # Mezclamos los datos para conseguir una muestra más homogénea al evaluar solo algunos
 df = shuffle(df)
 
-
 # Separar características (X) de etiquetas (y)
 #Tomando todas las filas como características
 #X_16= df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
@@ -38,7 +42,6 @@ y = df.iloc[:, -1].values   # Todas las filas, solo la última columna
 # Separamos los datos en datos de entrenamiento y de test
 #X_train, X_test, y_train, y_test = train_test_split(X_16, y, test_size=0.3, random_state=42)
 X_train, X_test, y_train, y_test = train_test_split(X_8, y, test_size=0.3, random_state=42)
-
 
 # Estandarizar los datos
 scaler = StandardScaler()
@@ -59,7 +62,7 @@ X_train_sample = X_train_sample.to_numpy()
 y_train_sample = y_train_sample.to_numpy().ravel()
 
 # Crear clasificador SVM
-model = svm.SVC(kernel='poly')
+model = svm.SVC(kernel='poly', probability=True)  # Agregar probability=True para calcular ROC AUC
 
 # Definir el grid de parámetros a buscar
 param_grid = {
@@ -89,6 +92,31 @@ print("Accuracy:", accuracy)
 # Obtener el informe de clasificación
 report = classification_report(y_test, y_pred)
 print("Classification poly Report:\n", report)
+
+# Métricas adicionales
+precision = precision_score(y_test, y_pred, average='weighted')
+recall = recall_score(y_test, y_pred, average='weighted')
+f1 = f1_score(y_test, y_pred, average='weighted')
+conf_matrix = confusion_matrix(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, grid.predict_proba(X_test), multi_class='ovr')
+avg_precision = average_precision_score(y_test, grid.predict_proba(X_test), average='weighted')
+logloss = log_loss(y_test, grid.predict_proba(X_test))
+mcc = matthews_corrcoef(y_test, y_pred)
+cohen_kappa = cohen_kappa_score(y_test, y_pred)
+hamming = hamming_loss(y_test, y_pred)
+jaccard = jaccard_score(y_test, y_pred, average='weighted')
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1 Score: {f1}")
+print(f"Confusion Matrix:\n{conf_matrix}")
+print(f"ROC AUC Score: {roc_auc}")
+print(f"Average Precision Score: {avg_precision}")
+print(f"Log Loss: {logloss}")
+print(f"Matthews Correlation Coefficient: {mcc}")
+print(f"Cohen's Kappa Score: {cohen_kappa}")
+print(f"Hamming Loss: {hamming}")
+print(f"Jaccard Score: {jaccard}")
 
 # Predecir en el conjunto de prueba
 y_pred = grid.predict(X_test)
