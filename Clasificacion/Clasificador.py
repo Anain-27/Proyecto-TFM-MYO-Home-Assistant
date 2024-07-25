@@ -8,7 +8,8 @@ from sklearn.utils import shuffle  # Importar shuffle
 import joblib
 
 #Comenzamos definiendo el path de los datos de entrada
-path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\'
+#path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\'
+path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado/datos_procesados/Todos/'
 
 print(path+'Datos_Limpios.xlsx')
 # Cargar datos desde el archivo Excel
