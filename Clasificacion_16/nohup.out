@@ -748,3 +748,5 @@ Tiempo total transcurrido: 4148.82910490036 segundos
 [CV] END .............C=100, coef0=1.0, degree=4, gamma=auto; total time=  13.3s
 [CV] END ............C=100, coef0=1.0, degree=4, gamma=0.001; total time=  22.4s
 [CV] END ............C=100, coef0=1.0, degree=5, gamma=0.001; total time=  19.0s
+python3: can't open file '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Clasificacion_16/Clasificador_comparatica_gestos.py': [Errno 2] No such file or directory
+python3: can't open file '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Clasificacion_16/Clasificador_comparatica_gestos.py': [Errno 2] No such file or directory
