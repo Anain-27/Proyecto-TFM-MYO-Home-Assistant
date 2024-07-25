@@ -9,8 +9,10 @@ import os
 import sys
 
 # Definir path de los datos de entrada y salida
-path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos_procesados\\Todos\\'
-path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\Comparativa\\'
+#path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos_procesados\\Todos\\'
+#path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\Comparativa\\'
+path_entrada = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Todos/'
+path_salida = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Clasificacion/Comparativa/'
 
 # Definir max_per_label
 max_per_label = 1000

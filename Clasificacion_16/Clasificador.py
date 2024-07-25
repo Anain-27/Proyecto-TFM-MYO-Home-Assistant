@@ -30,18 +30,18 @@ df = shuffle(df)
 
 # Separar características (X) de etiquetas (y)
 #Tomando todas las filas como características
-#X_16= df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
+X_16= df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
 
 # Especificamos las columnas que deseamos usar
 columnas_8 = ['Channel_1', 'Channel_2','Channel_3','Channel_4','Channel_5','Channel_6','Channel_7','Channel_8','quat1','quat2','quat3','quat4','acc1','acc2','acc3','gyro1','gyro2','gyro3']
 
 # Elegimos solo las primeras 8 columnas
-X_8 = df[columnas_8].values  # Selecciona solo las columnas deseadas
+#X_8 = df[columnas_8].values  # Selecciona solo las columnas deseadas
 y = df.iloc[:, -1].values   # Todas las filas, solo la última columna
 
 # Separamos los datos en datos de entrenamiento y de test
-#X_train, X_test, y_train, y_test = train_test_split(X_16, y, test_size=0.3, random_state=42)
-X_train, X_test, y_train, y_test = train_test_split(X_8, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_16, y, test_size=0.3, random_state=42)
+#X_train, X_test, y_train, y_test = train_test_split(X_8, y, test_size=0.3, random_state=42)
 
 # Estandarizar los datos
 scaler = StandardScaler()
