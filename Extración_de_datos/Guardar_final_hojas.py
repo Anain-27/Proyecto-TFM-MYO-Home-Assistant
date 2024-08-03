@@ -163,21 +163,19 @@ if __name__ == '__main__':
     seconds = gestos * 10 + 5
 
     # Ana: Añado el nombre arm para ponerlo en el guardado de datos
+    #brazo en el que se pone el dispositivo
     arm = "de_"
-    pos_brazo = "90Grados"
+
+    #posición inicial del brazo
+    #pos_brazo = "90Grados"
     #pos_brazo = "Estirado"
     #pos_brazo = "ManoArriba"
-    #pos_brazo = "ManoAbajo"
+    pos_brazo = "ManoAbajo"
 
-    pose = "JUNTOS"
-    #pose = "E"
-    # pose = "OK"
-    # pose = "C"
-    # pose = "V_MOV"
-    # pose = "SUBIR_DIAL"
-    #pose = "BAJAR_DIAL"
-    #pose = "BOTON"
-    num = "_1"
+    #Pose o gesto a realizar
+    pose = "BOTON"
+
+    num = "1"
 
     # Ana: Guardar los datos en carpetas
     name = "datos_raw/" + pos_brazo + "/" + pose + "/"
