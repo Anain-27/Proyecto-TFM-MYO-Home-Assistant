@@ -60,7 +60,7 @@ def process_directory(root_directory, output_directory):
                     print(f"Error procesando {file_path}: {e}")
 
 # Uso del script
-root_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Extración_de_datos\\datos_utilizados'
+root_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Extración_de_datos\\datos_usados'
 output_directory = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_df_nuevo'
 process_directory(root_directory, output_directory)
  

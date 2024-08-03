@@ -21,7 +21,7 @@ def integrar_df(df, window_size=10):
 
 
 #Comenzamos definiendo el path de entrada y salida
-path= 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado_16\\datos_procesados_16\\Todos\\'
+path= 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado_16\\datos_procesados_16\\Gestos_seleccionados\\'
 
 file  = path + 'Datos_Completos.xlsx'
 
