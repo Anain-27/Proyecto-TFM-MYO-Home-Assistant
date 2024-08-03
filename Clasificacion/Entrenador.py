@@ -7,15 +7,26 @@ from sklearn.metrics import accuracy_score, classification_report
 import joblib
 import time
 import os
+import glob
 
-# Comenzamos definiendo el path de los datos de entrada
+# Definir el path de los datos de entrada
 path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados\\Con_IMU_Dinamicos\\'
 
 # Definir max_per_label, para tener el mismo número por label
 max_per_label = 1000
 
-# Cargar datos desde el archivo CSV
-df = pd.read_csv(os.path.join(path, 'Datos_Limpios.csv'))
+# Obtener todos los archivos Datos_Limpios_*.csv
+file_pattern = os.path.join(path, 'Datos_Limpios_*.csv')
+files = glob.glob(file_pattern)
+
+# Crear el DataFrame donde añadiremos todos los datos
+df = pd.DataFrame()
+
+# Leer y combinar todos los archivos en un solo DataFrame
+for file in files:
+    df_temp = pd.read_csv(file)
+    df = pd.concat([df, df_temp], ignore_index=True)
+    print(f'Archivo leído: {file}')
 
 # Eliminar filas con valores nulos
 df.dropna(inplace=True)

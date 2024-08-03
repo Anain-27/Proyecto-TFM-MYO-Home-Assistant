@@ -7,8 +7,9 @@ from sklearn.metrics import accuracy_score, classification_report
 from itertools import combinations
 import os
 import sys
+import glob
 
-# Definir path de los datos de entrada y salida
+# Definir el path de los datos de entrada y salida
 path_entrada = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos_procesados\\Todos\\'
 path_salida = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Clasificacion\\Comparativa\\'
 
@@ -23,32 +24,40 @@ etiquetas_interes = ['ARRIBA', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FINGERS_SPREAD'
 # Nombre del archivo para guardar el registro
 registro_filename = os.path.join(path_salida, f'accuracy_{max_per_label}.txt')
 
+# Obtener todos los archivos Datos_Limpios_*.xlsx
+file_pattern = os.path.join(path_entrada, 'Datos_Limpios_*.xlsx')
+files = glob.glob(file_pattern)
+
+# Crear el dataframe donde añadiremos todos los datos
+df = pd.DataFrame()
+
+# Leer y combinar todos los archivos en un solo DataFrame
+for file in files:
+    df_temp = pd.read_excel(file)
+    df = pd.concat([df, df_temp], ignore_index=True)
+    print(f'Archivo leído: {file}')
+
+# Eliminar filas con valores nulos
+df.dropna(inplace=True)
+
+print('Datos captados')
+
+# Mezclar los datos para conseguir una muestra más homogénea
+df = df.sample(frac=1, random_state=42)
+
+# Dictionary para almacenar los datos seleccionados por etiqueta
+data_por_etiqueta = {}
+
+# Iterar sobre cada etiqueta de interés y seleccionar los primeros max_per_label datos
+for etiqueta in etiquetas_interes:
+    df_etiqueta = df[df['pose'] == etiqueta].head(max_per_label)
+    data_por_etiqueta[etiqueta] = df_etiqueta
+
 # Abrir el archivo en modo append (para añadir al final)
 with open(registro_filename, 'a') as f:
     # Redirigir la salida estándar a este archivo
     original_stdout = sys.stdout
     sys.stdout = f
-
-    print(path_entrada + 'Datos_Limpios.xlsx')
-
-    # Cargar datos desde el archivo Excel
-    df = pd.read_excel(path_entrada + 'Datos_Limpios.xlsx')
-
-    # Eliminar filas con valores nulos
-    df.dropna(inplace=True)
-
-    print('Datos captados')
-
-    # Mezclar los datos para conseguir una muestra más homogénea
-    df = df.sample(frac=1, random_state=42)
-
-    # Dictionary para almacenar los datos seleccionados por etiqueta
-    data_por_etiqueta = {}
-
-    # Iterar sobre cada etiqueta de interés y seleccionar los primeros max_per_label datos
-    for etiqueta in etiquetas_interes:
-        df_etiqueta = df[df['pose'] == etiqueta].head(max_per_label)
-        data_por_etiqueta[etiqueta] = df_etiqueta
 
     # Iterar sobre todas las combinaciones de etiquetas de interés
     for r in range(1, len(etiquetas_interes) + 1):

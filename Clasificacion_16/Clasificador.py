@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import os
+import glob
 from sklearn import svm
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
@@ -9,39 +11,42 @@ from sklearn.metrics import (
     roc_auc_score, average_precision_score, log_loss,
     matthews_corrcoef, cohen_kappa_score, hamming_loss, jaccard_score
 )
-from sklearn.utils import shuffle  # Importar shuffle
+from sklearn.utils import shuffle
 import joblib
-import time  # Importar la librería time
+import time
 
-# Comenzamos definiendo el path de los datos de entrada
-path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Todos/'
-#path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado_16\\datos_procesados_16\\'
+# Definir el path de los datos de entrada
+path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Gestos_usados/'
+#path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado_16\\datos_procesados_16\\Gestos_usados'
 
-print(path+'Datos_Limpios.xlsx')
-# Cargar datos desde el archivo Excel
-df = pd.read_excel(path+'Datos_Limpios.xlsx')
+# Obtener todos los archivos Datos_Limpios_*.xlsx
+file_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')
+files = glob.glob(file_pattern)
+
+# Crear el dataframe donde añadiremos todos los datos
+df = pd.DataFrame()
+
+# Leer y combinar todos los archivos en un solo DataFrame
+for file in files:
+    df_temp = pd.read_excel(file)
+    df = pd.concat([df, df_temp], ignore_index=True)
+    print(f'Archivo leído: {file}')
+
+# Eliminar filas con valores nulos
 df.dropna(inplace=True)
 
 print('Datos captados')
 print(f'Tamaño del dataset: {df.shape}')
 
-# Mezclamos los datos para conseguir una muestra más homogénea al evaluar solo algunos
+# Mezclar los datos para conseguir una muestra más homogénea al evaluar solo algunos
 df = shuffle(df)
 
 # Separar características (X) de etiquetas (y)
-#Tomando todas las filas como características
-X_16= df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
-
-# Especificamos las columnas que deseamos usar
-columnas_8 = ['Channel_1', 'Channel_2','Channel_3','Channel_4','Channel_5','Channel_6','Channel_7','Channel_8','quat1','quat2','quat3','quat4','acc1','acc2','acc3','gyro1','gyro2','gyro3']
-
-# Elegimos solo las primeras 8 columnas
-#X_8 = df[columnas_8].values  # Selecciona solo las columnas deseadas
+X_16 = df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
 y = df.iloc[:, -1].values   # Todas las filas, solo la última columna
 
-# Separamos los datos en datos de entrenamiento y de test
+# Separamos los datos en datos de entrenamiento y de prueba
 X_train, X_test, y_train, y_test = train_test_split(X_16, y, test_size=0.3, random_state=42)
-#X_train, X_test, y_train, y_test = train_test_split(X_8, y, test_size=0.3, random_state=42)
 
 # Estandarizar los datos
 scaler = StandardScaler()
@@ -73,13 +78,14 @@ param_grid = {
 }
 
 # Entrenar el clasificador
-print('Comienza el training')
+print('Comienza el entrenamiento')
 start_time = time.time()  # Iniciar el cronómetro
+
 # Crear y entrenar el modelo con GridSearchCV para encontrar los mejores hiperparámetros
 grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=7)
 grid.fit(X_train_sample, y_train_sample)
 
-# Guardamos el modelo
+# Guardar el modelo
 joblib.dump(grid, 'clasificador_svm_poly_8_de_16.pkl')
 
 # Predecir etiquetas para los datos de prueba
@@ -91,7 +97,7 @@ print("Accuracy:", accuracy)
 
 # Obtener el informe de clasificación
 report = classification_report(y_test, y_pred)
-print("Classification poly Report:\n", report)
+print("Classification Report:\n", report)
 
 # Métricas adicionales
 precision = precision_score(y_test, y_pred, average='weighted')
@@ -118,10 +124,7 @@ print(f"Cohen's Kappa Score: {cohen_kappa}")
 print(f"Hamming Loss: {hamming}")
 print(f"Jaccard Score: {jaccard}")
 
-# Predecir en el conjunto de prueba
-y_pred = grid.predict(X_test)
-
-# Evaluar la precisión
+# Imprimir los mejores parámetros
 print(f"Best Parameters: {grid.best_params_}")
 
 # Imprimir el tiempo total transcurrido

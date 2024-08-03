@@ -7,21 +7,31 @@ from sklearn.metrics import accuracy_score, classification_report
 import joblib
 import time
 import os
-import sys
+import glob
 
-# Comenzamos definiendo el path de los datos de entrada
-path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados\\Con_IMU_Dinamicos\\'
+# Definir el path de los datos de entrada
+path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Con_IMU_Dinamicos/'
 
 # Definir max_per_label, para tener el mismo número por label
 max_per_label = 1000
 
-# Cargar datos desde el archivo Excel
-df = pd.read_excel(os.path.join(path, 'Datos_Limpios.xlsx'), sheet_name="Sheet1")
+# Obtener todos los archivos Datos_Limpios_*.xlsx
+file_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')
+files = glob.glob(file_pattern)
+
+# Crear el DataFrame donde añadiremos todos los datos
+df = pd.DataFrame()
+
+# Leer y combinar todos los archivos en un solo DataFrame
+for file in files:
+    df_temp = pd.read_excel(file)
+    df = pd.concat([df, df_temp], ignore_index=True)
+    print(f'Archivo leído: {file}')
 
 # Eliminar filas con valores nulos
 df.dropna(inplace=True)
 
-#Tomamos max_per_label por etiqueta
+# Tomar max_per_label por etiqueta
 counts = df.iloc[:, -1].value_counts()
 keep_indices = []
 for label in counts.index:
@@ -39,7 +49,7 @@ print(f"Tamaño de la muestra inicial: {tamano_muestra_inicial}")
 X = df.iloc[:, :-1].values  # Todas las filas, todas las columnas excepto la última
 y = df.iloc[:, -1].values  # Todas las filas, solo la última columna
 
-# Separamos los datos en datos de entrenamiento y de test, eligiendo un tamaño de la muestra de test y una semilla para reproducibilidad del aleatorio
+# Separar los datos en datos de entrenamiento y de test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Estandarizar los datos
@@ -48,8 +58,9 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Guardar el scaler por si hemos usado uno modificado
-joblib.dump(scaler, 'scaler.pkl')
-print("Scaler guardado como 'scaler.pkl'")
+scaler_path = os.path.join(path, 'scaler.pkl')
+joblib.dump(scaler, scaler_path)
+print(f"Scaler guardado como '{scaler_path}'")
 
 # Crear clasificador SVM con núcleo polinomial
 model = SVC(C=100, coef0=1.0, degree=5, gamma='scale', kernel='poly')
@@ -66,8 +77,9 @@ training_time = time.time() - start_time
 print(f'Tiempo de entrenamiento: {training_time:.2f} segundos')
 
 # Guardar el modelo entrenado en un archivo
-joblib.dump(model, 'entrenado_prueba.pkl')
-print("Modelo guardado como 'entrenado_prueba.pkl'")
+model_path = os.path.join(path, 'entrenado_prueba.pkl')
+joblib.dump(model, model_path)
+print(f"Modelo guardado como '{model_path}'")
 
 # Predecir etiquetas para los datos de prueba
 y_pred = model.predict(X_test_scaled)
