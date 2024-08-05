@@ -17,7 +17,7 @@ import time
 
 # Definir el path de los datos de entrada
 path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Gestos_usados/'
-#path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado_16\\datos_procesados_16\\Gestos_usados'
+#path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado_16\\datos_procesados_16\\Gestos_se'
 
 # Obtener todos los archivos Datos_Limpios_*.xlsx
 file_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')

@@ -10,8 +10,8 @@ from sklearn.utils import shuffle
 import joblib
 
 # Definir el path de los datos de entrada
-path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado/datos_procesados/Todos/'
-# path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM\\Preprocesado\\datos\\'
+#path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado/datos_procesados/Gestos_seleccionados/'
+path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados\\Gestos_seleccionados\\'
 
 # Obtener todos los archivos Datos_Limpios_*.xlsx
 file_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')
@@ -50,7 +50,7 @@ X_train_df = pd.DataFrame(X_train_scaled)
 y_train_df = pd.DataFrame(y_train)
 
 # Usar una muestra aleatoria de 50,000 filas para pruebas iniciales
-sample_size = 50000
+sample_size = len(X_train_df)
 X_train_sample = X_train_df.sample(n=sample_size, random_state=50)
 y_train_sample = y_train_df.loc[X_train_sample.index]
 
