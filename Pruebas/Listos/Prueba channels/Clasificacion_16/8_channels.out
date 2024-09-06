@@ -1,0 +1,774 @@
+nohup: no se tendrá en cuenta la entrada
+/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado_16/datos_procesados_16/Todos/Datos_Limpios.xlsx
+Datos captados
+Tamaño del dataset: (372118, 27)
+Comienza el training
+Fitting 3 folds for each of 240 candidates, totalling 720 fits
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=auto; total time= 3.1min
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=0.01; total time= 9.7min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=auto; total time= 3.5min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=0.001; total time=11.6min
+[CV] END ..............C=0.1, coef0=0.0, degree=4, gamma=0.1; total time= 1.9min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=0.01; total time=11.1min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=auto; total time= 5.3min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=scale; total time= 1.7min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=scale; total time= 1.8min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=scale; total time= 1.8min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=auto; total time= 1.8min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=auto; total time= 1.7min
+[CV] END ..............C=0.1, coef0=0.5, degree=2, gamma=0.1; total time= 1.2min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=0.01; total time= 3.8min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=scale; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=3, gamma=0.1; total time=  59.9s
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=0.01; total time= 4.2min
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=auto; total time= 1.4min
+[CV] END ..............C=0.1, coef0=0.5, degree=4, gamma=0.1; total time=  52.1s
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=0.01; total time= 4.6min
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=scale; total time= 1.4min
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=auto; total time= 1.4min
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=0.01; total time= 5.4min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=scale; total time= 1.5min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=auto; total time= 1.5min
+[CV] END ..............C=0.1, coef0=1.0, degree=2, gamma=0.1; total time= 1.1min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=0.001; total time= 6.8min
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=0.001; total time= 6.4min
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=scale; total time=  46.5s
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=auto; total time=  46.2s
+[CV] END ..............C=0.1, coef0=1.0, degree=5, gamma=0.1; total time=  35.4s
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=0.01; total time= 2.0min
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=scale; total time= 1.3min
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=auto; total time= 1.3min
+[CV] END ................C=1, coef0=0.0, degree=2, gamma=0.1; total time=  56.9s
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=0.001; total time=10.4min
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=0.001; total time=10.5min
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=0.001; total time=10.7min
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=scale; total time=  50.3s
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=scale; total time=  50.2s
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=scale; total time=  50.3s
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=auto; total time=  50.5s
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=auto; total time=  50.1s
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=auto; total time=  50.2s
+[CV] END ................C=1, coef0=0.5, degree=2, gamma=0.1; total time=  41.4s
+[CV] END ................C=1, coef0=0.5, degree=2, gamma=0.1; total time=  41.4s
+[CV] END ................C=1, coef0=0.5, degree=2, gamma=0.1; total time=  41.3s
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=0.01; total time= 1.7min
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=0.001; total time= 4.2min
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=scale; total time=  43.4s
+[CV] END ................C=1, coef0=0.5, degree=4, gamma=0.1; total time=  34.3s
+[CV] END ................C=1, coef0=0.5, degree=4, gamma=0.1; total time=  34.8s
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=0.001; total time= 5.2min
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=0.001; total time= 6.2min
+[CV] END ................C=1, coef0=1.0, degree=3, gamma=0.1; total time=  33.0s
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=0.001; total time= 2.8min
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=0.001; total time= 2.6min
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=scale; total time=  44.8s
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=auto; total time=  44.9s
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=0.01; total time= 1.9min
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=auto; total time=  41.4s
+[CV] END ...............C=10, coef0=0.0, degree=3, gamma=0.1; total time=  35.1s
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=0.01; total time= 4.1min
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=scale; total time=  55.4s
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=scale; total time=  55.3s
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=scale; total time=  55.7s
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=auto; total time=  55.0s
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=0.01; total time= 7.5min
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=scale; total time= 1.2min
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=auto; total time= 1.2min
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=0.01; total time= 8.8min
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=auto; total time=  34.5s
+[CV] END ...............C=10, coef0=0.5, degree=2, gamma=0.1; total time=  33.6s
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=0.01; total time=  55.3s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=scale; total time=  31.8s
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=auto; total time=  32.0s
+[CV] END ...............C=10, coef0=0.5, degree=3, gamma=0.1; total time=  31.7s
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=0.01; total time=  55.8s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=0.001; total time= 2.2min
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=scale; total time=  31.1s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=auto; total time=  31.5s
+[CV] END ...............C=10, coef0=0.5, degree=5, gamma=0.1; total time=  33.3s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=0.01; total time= 1.0min
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=auto; total time=  36.3s
+[CV] END ...............C=10, coef0=1.0, degree=2, gamma=0.1; total time=  35.4s
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=0.01; total time=  53.5s
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=scale; total time=  32.0s
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=auto; total time=  31.2s
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=0.01; total time=  48.2s
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=scale; total time=  31.0s
+[CV] END ...............C=10, coef0=1.0, degree=4, gamma=0.1; total time=  30.9s
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=0.001; total time= 1.4min
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=0.01; total time=  37.8s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=scale; total time=  45.1s
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=auto; total time=  45.6s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=0.001; total time= 4.8min
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=scale; total time=  41.2s
+[CV] END ..............C=100, coef0=0.0, degree=4, gamma=0.1; total time=  39.6s
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=0.01; total time= 4.4min
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=0.001; total time=10.6min
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=scale; total time=  36.5s
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=scale; total time= 3.1min
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=0.01; total time= 9.3min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=auto; total time= 3.4min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=0.01; total time=10.3min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=auto; total time= 4.7min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=0.001; total time=11.0min
+[CV] END ..............C=0.1, coef0=0.0, degree=5, gamma=0.1; total time= 2.0min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=0.01; total time=10.7min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=auto; total time= 1.7min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=0.01; total time= 4.0min
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=auto; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=3, gamma=0.1; total time= 1.0min
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=0.01; total time= 4.2min
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=auto; total time= 1.4min
+[CV] END ..............C=0.1, coef0=0.5, degree=4, gamma=0.1; total time=  53.3s
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=0.01; total time= 4.6min
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=scale; total time= 1.4min
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=auto; total time= 1.4min
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=0.01; total time= 5.5min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=scale; total time= 1.5min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=auto; total time= 1.5min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=0.01; total time= 3.1min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=0.001; total time= 7.0min
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=scale; total time=  54.1s
+[CV] END ..............C=0.1, coef0=1.0, degree=4, gamma=0.1; total time=  38.8s
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=0.01; total time= 2.3min
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=scale; total time=  46.3s
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=auto; total time=  46.8s
+[CV] END ..............C=0.1, coef0=1.0, degree=5, gamma=0.1; total time=  35.9s
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=0.01; total time= 2.0min
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=0.001; total time= 5.2min
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=0.001; total time=10.3min
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=scale; total time= 1.9min
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=scale; total time= 1.9min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=auto; total time= 1.9min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=0.01; total time= 9.3min
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=auto; total time= 2.5min
+[CV] END ................C=1, coef0=0.0, degree=5, gamma=0.1; total time=  58.5s
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=0.001; total time=11.2min
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=auto; total time=  48.0s
+[CV] END ................C=1, coef0=0.5, degree=3, gamma=0.1; total time=  36.8s
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=0.01; total time= 1.8min
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=scale; total time=  43.9s
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=auto; total time=  44.2s
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=0.01; total time= 2.0min
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=scale; total time=  45.4s
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=auto; total time=  44.5s
+[CV] END ................C=1, coef0=0.5, degree=5, gamma=0.1; total time=  35.4s
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=0.001; total time= 6.5min
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=scale; total time=  39.3s
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=auto; total time=  39.2s
+[CV] END ................C=1, coef0=1.0, degree=3, gamma=0.1; total time=  33.3s
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=0.001; total time= 2.9min
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=0.001; total time= 2.7min
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=auto; total time=  47.2s
+[CV] END ...............C=10, coef0=0.0, degree=2, gamma=0.1; total time=  43.6s
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=0.01; total time= 1.9min
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=auto; total time=  43.6s
+[CV] END ...............C=10, coef0=0.0, degree=3, gamma=0.1; total time=  34.9s
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=0.001; total time=10.4min
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=0.001; total time=10.8min
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=0.001; total time=10.9min
+[CV] END ...............C=10, coef0=0.5, degree=4, gamma=0.1; total time=  32.2s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=0.001; total time= 2.4min
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=0.001; total time= 2.8min
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=auto; total time=  31.7s
+[CV] END ...............C=10, coef0=1.0, degree=3, gamma=0.1; total time=  31.3s
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=0.001; total time= 1.5min
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=0.01; total time=  41.4s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=scale; total time=  29.8s
+[CV] END ...............C=10, coef0=1.0, degree=5, gamma=0.1; total time=  32.6s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=0.001; total time= 1.3min
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=0.01; total time=  55.5s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=0.001; total time= 4.7min
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=auto; total time=  40.7s
+[CV] END ..............C=100, coef0=0.0, degree=4, gamma=0.1; total time=  40.0s
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=0.01; total time= 4.4min
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=scale; total time=  44.3s
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=scale; total time=  43.7s
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=auto; total time=  44.4s
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=auto; total time=  43.2s
+[CV] END ..............C=100, coef0=0.0, degree=5, gamma=0.1; total time=  37.6s
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=0.01; total time= 7.2min
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=auto; total time=  38.6s
+[CV] END ..............C=100, coef0=0.5, degree=2, gamma=0.1; total time=  53.7s
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=0.01; total time=  41.0s
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=scale; total time=  30.8s
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=scale; total time=  30.9s
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=auto; total time=  31.2s
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=0.01; total time=  36.2s
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=0.001; total time= 1.2min
+[CV] END ..............C=100, coef0=0.5, degree=4, gamma=0.1; total time=  33.7s
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=0.01; total time=  36.8s
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=scale; total time=  33.4s
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=auto; total time=  32.2s
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=0.01; total time=  35.2s
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=scale; total time=  41.1s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=auto; total time=  42.3s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=0.01; total time=  44.0s
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=0.001; total time= 1.1min
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=0.01; total time=  38.1s
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=auto; total time= 3.3min
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=0.001; total time=11.7min
+[CV] END ..............C=0.1, coef0=0.0, degree=3, gamma=0.1; total time= 1.6min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=0.001; total time=11.2min
+[CV] END ..............C=0.1, coef0=0.0, degree=4, gamma=0.1; total time= 1.9min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=0.01; total time=11.1min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=auto; total time= 5.2min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=0.001; total time=11.5min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=scale; total time= 1.6min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=scale; total time= 1.6min
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=auto; total time= 1.6min
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=0.01; total time= 4.4min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=scale; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=4, gamma=0.1; total time=  56.4s
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=0.01; total time= 5.0min
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=scale; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=5, gamma=0.1; total time=  52.5s
+[CV] END ..............C=0.1, coef0=0.5, degree=5, gamma=0.1; total time=  54.0s
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=0.001; total time=10.7min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=0.001; total time= 7.3min
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=auto; total time= 1.0min
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=0.01; total time= 2.3min
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=0.001; total time= 6.0min
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=auto; total time= 1.4min
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=0.01; total time= 5.1min
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=scale; total time= 1.4min
+[CV] END ................C=1, coef0=0.0, degree=3, gamma=0.1; total time=  51.1s
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=0.01; total time= 8.0min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=auto; total time= 2.0min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=0.01; total time= 9.9min
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=scale; total time= 2.6min
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=0.01; total time=10.3min
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=0.001; total time= 4.2min
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=0.001; total time= 4.5min
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=scale; total time=  41.4s
+[CV] END ................C=1, coef0=0.5, degree=5, gamma=0.1; total time=  35.0s
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=0.01; total time= 2.1min
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=0.001; total time= 6.3min
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=0.01; total time= 1.2min
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=scale; total time=  33.9s
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=auto; total time=  34.1s
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=0.01; total time= 1.1min
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=scale; total time=  32.4s
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=auto; total time=  32.5s
+[CV] END ................C=1, coef0=1.0, degree=5, gamma=0.1; total time=  32.6s
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=0.001; total time= 2.5min
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=0.001; total time= 9.1min
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=auto; total time=  58.0s
+[CV] END ...............C=10, coef0=0.0, degree=4, gamma=0.1; total time=  42.7s
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=0.01; total time= 7.6min
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=scale; total time= 1.2min
+[CV] END ...............C=10, coef0=0.0, degree=5, gamma=0.1; total time=  42.3s
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=0.01; total time= 9.2min
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=auto; total time=  36.4s
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=0.01; total time=  58.3s
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=0.001; total time= 2.1min
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=0.01; total time=  55.8s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=scale; total time=  34.0s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=scale; total time=  32.1s
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=auto; total time=  32.6s
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=0.01; total time=  56.8s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=auto; total time=  33.0s
+[CV] END ...............C=10, coef0=0.5, degree=5, gamma=0.1; total time=  33.1s
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=0.001; total time= 2.8min
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=0.001; total time= 1.7min
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=scale; total time=  31.2s
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=auto; total time=  31.5s
+[CV] END ...............C=10, coef0=1.0, degree=4, gamma=0.1; total time=  31.5s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=scale; total time=  31.5s
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=auto; total time=  31.5s
+[CV] END ...............C=10, coef0=1.0, degree=5, gamma=0.1; total time=  33.5s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=scale; total time=  47.4s
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=auto; total time=  45.5s
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=0.01; total time=  56.1s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=auto; total time=  36.4s
+[CV] END ..............C=100, coef0=0.0, degree=3, gamma=0.1; total time=  37.8s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=0.01; total time= 1.7min
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=scale; total time=  41.9s
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=scale; total time=  43.6s
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=auto; total time=  42.1s
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=0.01; total time= 4.6min
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=0.001; total time=10.8min
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=scale; total time=  40.2s
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=auto; total time=  39.0s
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=0.01; total time=  39.9s
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=0.001; total time= 1.2min
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=scale; total time=  33.0s
+[CV] END ..............C=100, coef0=0.5, degree=3, gamma=0.1; total time=  34.9s
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=0.01; total time=  38.6s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=scale; total time=  32.0s
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=auto; total time=  31.3s
+[CV] END ..............C=100, coef0=0.5, degree=4, gamma=0.1; total time=  33.5s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=0.001; total time= 1.3min
+[CV] END ..............C=100, coef0=0.5, degree=5, gamma=0.1; total time=  34.7s
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=0.001; total time= 1.5min
+[CV] END ..............C=100, coef0=1.0, degree=2, gamma=0.1; total time=  55.7s
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=0.001; total time= 1.1min
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=0.01; total time=  39.3s
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=scale; total time=  33.3s
+[CV] END ..............C=100, coef0=1.0, degree=4, gamma=0.1; total time=  34.6s
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=0.001; total time=  57.2s
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=scale; total time= 3.0min
+[CV] END ..............C=0.1, coef0=0.0, degree=2, gamma=0.1; total time= 1.9min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=scale; total time= 3.4min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=scale; total time= 3.2min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=scale; total time= 3.3min
+[CV] END ..............C=0.1, coef0=0.0, degree=3, gamma=0.1; total time= 1.6min
+[CV] END ............C=0.1, coef0=0.0, degree=3, gamma=0.001; total time=10.6min
+[CV] END ..............C=0.1, coef0=0.0, degree=4, gamma=0.1; total time= 1.9min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=0.01; total time=10.4min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=scale; total time= 5.1min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=0.01; total time=10.7min
+[CV] END ..............C=0.1, coef0=0.5, degree=2, gamma=0.1; total time= 1.3min
+[CV] END .............C=0.1, coef0=0.5, degree=2, gamma=0.01; total time= 3.9min
+[CV] END .............C=0.1, coef0=0.5, degree=3, gamma=auto; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=3, gamma=0.1; total time= 1.0min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=0.001; total time= 8.8min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=0.001; total time= 9.7min
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=0.001; total time=10.3min
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=0.01; total time= 2.6min
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=scale; total time=  55.7s
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=auto; total time=  54.8s
+[CV] END ..............C=0.1, coef0=1.0, degree=4, gamma=0.1; total time=  39.7s
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=0.01; total time= 2.2min
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=scale; total time=  45.4s
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=auto; total time=  45.7s
+[CV] END ..............C=0.1, coef0=1.0, degree=5, gamma=0.1; total time=  35.5s
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=0.001; total time= 5.3min
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=0.01; total time= 4.9min
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=auto; total time= 1.3min
+[CV] END ................C=1, coef0=0.0, degree=3, gamma=0.1; total time=  46.5s
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=0.001; total time=10.7min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=0.01; total time= 9.4min
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=auto; total time= 2.5min
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=0.01; total time= 9.7min
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=0.01; total time= 1.7min
+[CV] END ..............C=1, coef0=0.5, degree=2, gamma=0.001; total time= 4.1min
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=auto; total time=  42.8s
+[CV] END ................C=1, coef0=0.5, degree=4, gamma=0.1; total time=  35.1s
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=0.01; total time= 1.9min
+[CV] END ..............C=1, coef0=0.5, degree=5, gamma=scale; total time=  41.8s
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=auto; total time=  42.0s
+[CV] END ................C=1, coef0=0.5, degree=5, gamma=0.1; total time=  35.3s
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=0.01; total time= 2.1min
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=scale; total time=  47.8s
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=auto; total time=  47.6s
+[CV] END ................C=1, coef0=1.0, degree=2, gamma=0.1; total time=  39.2s
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=0.001; total time= 3.1min
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=auto; total time=  37.9s
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=0.01; total time= 1.3min
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=scale; total time=  36.2s
+[CV] END ................C=1, coef0=1.0, degree=4, gamma=0.1; total time=  32.8s
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=0.01; total time= 1.2min
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=auto; total time=  33.7s
+[CV] END ................C=1, coef0=1.0, degree=5, gamma=0.1; total time=  32.2s
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=0.01; total time= 1.0min
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=scale; total time=  46.6s
+[CV] END ...............C=10, coef0=0.0, degree=2, gamma=0.1; total time=  40.7s
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=0.01; total time= 1.9min
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=scale; total time=  44.6s
+[CV] END ...............C=10, coef0=0.0, degree=3, gamma=0.1; total time=  35.8s
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=0.01; total time= 4.0min
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=0.001; total time=10.6min
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=scale; total time= 1.2min
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=auto; total time= 1.2min
+[CV] END ...............C=10, coef0=0.0, degree=5, gamma=0.1; total time=  40.4s
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=0.001; total time=10.7min
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=0.001; total time= 1.9min
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=0.01; total time=  54.5s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=scale; total time=  31.7s
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=auto; total time=  32.7s
+[CV] END ...............C=10, coef0=0.5, degree=4, gamma=0.1; total time=  33.3s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=0.001; total time= 2.4min
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=0.001; total time= 2.8min
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=scale; total time=  32.8s
+[CV] END ...............C=10, coef0=1.0, degree=3, gamma=0.1; total time=  32.4s
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=0.001; total time= 1.5min
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=0.01; total time=  43.0s
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=auto; total time=  31.8s
+[CV] END ...............C=10, coef0=1.0, degree=5, gamma=0.1; total time=  33.2s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=0.001; total time= 1.3min
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=0.01; total time=  58.8s
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=scale; total time=  37.3s
+[CV] END ..............C=100, coef0=0.0, degree=3, gamma=0.1; total time=  37.9s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=0.01; total time= 1.7min
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=0.001; total time=10.3min
+[CV] END ..............C=100, coef0=0.0, degree=5, gamma=0.1; total time=  41.8s
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=0.001; total time=11.4min
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=0.001; total time= 1.2min
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=auto; total time=  31.8s
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=0.01; total time=  37.3s
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=scale; total time=  32.3s
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=auto; total time=  32.9s
+[CV] END ..............C=100, coef0=0.5, degree=5, gamma=0.1; total time=  35.6s
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=0.001; total time= 1.4min
+[CV] END ..............C=100, coef0=1.0, degree=2, gamma=0.1; total time=  53.7s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=scale; total time=  36.9s
+[CV] END ..............C=100, coef0=1.0, degree=3, gamma=0.1; total time=  37.3s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=0.001; total time= 1.0min
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=0.01; total time=  37.3s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=scale; total time=  33.4s
+[CV] END ..............C=100, coef0=1.0, degree=5, gamma=0.1; total time=  35.5s
+Accuracy: 0.23042746067576766
+Classification poly Report:
+                 precision    recall  f1-score   support
+
+        ARRIBA       0.37      0.96      0.54      8994
+  CRUZAR_DEDOS       0.19      0.42      0.27      4463
+        CUATRO       0.24      0.30      0.27      8920
+           DOS       0.27      0.42      0.33      8905
+FINGERS_SPREAD       0.01      0.01      0.01      9032
+          FIST       0.00      0.00      0.00      9076
+       GIRO_IN       0.13      0.05      0.07      8915
+      GIRO_OUT       0.15      0.20      0.17      8955
+          REST       0.11      0.15      0.13      8861
+          TRES       0.27      0.06      0.10      8922
+           UNO       0.00      0.00      0.00      9078
+       WAVE_IN       0.23      0.39      0.29      8485
+      WAVE_OUT       0.25      0.15      0.19      9030
+
+      accuracy                           0.23    111636
+     macro avg       0.17      0.24      0.18    111636
+  weighted avg       0.17      0.23      0.18    111636
+
+Precision: 0.17073192970401807
+Recall: 0.23042746067576766
+F1 Score: 0.17678665766429014
+Confusion Matrix:
+[[8622    0   82  203    0    0    0   22    1    0    0   64    0]
+ [ 253 1870    1  195   41    0  258    0  718    0    0  575  552]
+ [1122 1390 2700 1783  219  135  190    0    0    0    0  866  515]
+ [2374  165 1805 3699  208    0  644    0    1    0    0    9    0]
+ [2918    0    0 2284   48    0    0  293 2212    0    0  823  454]
+ [2297   37  892  721  994    0 1007  595 1668  150    0  276  439]
+ [1378  676 2257 1754  250    0  415  624  929  220    0  412    0]
+ [ 561  498 1928   11    5    0    0 1801 2265  662    0  409  815]
+ [ 173    0  388 2209 1129    0    0 1949 1317  354    0 1197  145]
+ [   3 2380    0  281    0    0  591 2095    6  526  145 2238  657]
+ [2232    0 1059    0 2242    0    0 2289    1    0    0 1255    0]
+ [ 476    0    0    0    0    0    0 1978 2028    0    0 3351  652]
+ [ 619 2623    0  706  111    0    0    0  474    1    0 3121 1375]]
+ROC AUC Score: 0.6975078474283042
+Average Precision Score: 0.2123464604544069
+Log Loss: 6.72337747015585
+Matthews Correlation Coefficient: 0.1713139759001748
+Cohen's Kappa Score: 0.16700050447699244
+Hamming Loss: 0.7695725393242323
+Jaccard Score: 0.10537471870498674
+Best Parameters: {'C': 10, 'coef0': 1.0, 'degree': 5, 'gamma': 0.1}
+Tiempo total transcurrido: 15592.626598834991 segundos
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=scale; total time=  32.3s
+[CV] END ..............C=100, coef0=1.0, degree=4, gamma=0.1; total time=  32.6s
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=0.001; total time=  56.4s
+[CV] END ..............C=100, coef0=1.0, degree=5, gamma=0.1; total time=  33.6s
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=auto; total time= 3.0min
+[CV] END .............C=0.1, coef0=0.0, degree=2, gamma=0.01; total time= 9.0min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=auto; total time= 3.2min
+[CV] END ..............C=0.1, coef0=0.0, degree=3, gamma=0.1; total time= 1.6min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=scale; total time= 4.5min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=scale; total time= 4.3min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=scale; total time= 4.3min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=0.001; total time=10.8min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=auto; total time= 5.1min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=0.001; total time=10.8min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=0.001; total time= 8.0min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=0.001; total time= 8.7min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=0.001; total time= 9.5min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=auto; total time= 1.5min
+[CV] END ..............C=0.1, coef0=1.0, degree=2, gamma=0.1; total time= 1.1min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=0.01; total time= 3.1min
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=scale; total time= 1.1min
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=auto; total time= 1.1min
+[CV] END ..............C=0.1, coef0=1.0, degree=3, gamma=0.1; total time=  49.2s
+[CV] END ..............C=0.1, coef0=1.0, degree=3, gamma=0.1; total time=  50.3s
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=0.001; total time= 6.3min
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=0.001; total time= 5.7min
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=scale; total time= 1.3min
+[CV] END ................C=1, coef0=0.0, degree=2, gamma=0.1; total time=  57.0s
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=0.01; total time= 4.8min
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=auto; total time= 1.3min
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=0.01; total time= 7.7min
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=scale; total time= 1.9min
+[CV] END ................C=1, coef0=0.0, degree=4, gamma=0.1; total time=  57.9s
+[CV] END ................C=1, coef0=0.0, degree=4, gamma=0.1; total time=  57.6s
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=0.001; total time=10.9min
+[CV] END ................C=1, coef0=0.0, degree=5, gamma=0.1; total time=  59.9s
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=0.01; total time=10.1min
+[CV] END ...............C=1, coef0=0.5, degree=2, gamma=0.01; total time= 1.7min
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=scale; total time=  44.5s
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=auto; total time=  44.4s
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=0.01; total time= 1.8min
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=0.001; total time= 4.6min
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=auto; total time=  43.0s
+[CV] END ...............C=1, coef0=0.5, degree=5, gamma=0.01; total time= 2.2min
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=scale; total time=  48.3s
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=scale; total time=  49.4s
+[CV] END ................C=1, coef0=1.0, degree=2, gamma=0.1; total time=  39.8s
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=0.01; total time= 1.5min
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=0.001; total time= 3.2min
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=0.001; total time= 2.8min
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=scale; total time=  33.2s
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=auto; total time=  33.0s
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=0.01; total time= 1.0min
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=0.001; total time= 2.4min
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=scale; total time=  42.1s
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=scale; total time=  41.5s
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=auto; total time=  43.1s
+[CV] END ..............C=10, coef0=0.0, degree=3, gamma=0.01; total time= 4.1min
+[CV] END .............C=10, coef0=0.0, degree=3, gamma=0.001; total time=10.3min
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=0.001; total time=10.6min
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=scale; total time=  35.0s
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=scale; total time=  34.2s
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=scale; total time=  34.0s
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=auto; total time=  33.7s
+[CV] END ...............C=10, coef0=0.5, degree=2, gamma=0.1; total time=  32.5s
+[CV] END .............C=10, coef0=0.5, degree=2, gamma=0.001; total time= 1.9min
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=auto; total time=  30.7s
+[CV] END ...............C=10, coef0=0.5, degree=3, gamma=0.1; total time=  29.8s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=0.001; total time= 2.0min
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=0.01; total time=  56.5s
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=scale; total time=  31.6s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=auto; total time=  32.2s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=0.01; total time=  57.6s
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=scale; total time=  35.1s
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=auto; total time=  35.2s
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=0.01; total time=  53.3s
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=0.001; total time= 1.6min
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=0.01; total time=  46.9s
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=auto; total time=  31.7s
+[CV] END ...............C=10, coef0=1.0, degree=4, gamma=0.1; total time=  32.0s
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=0.001; total time= 1.4min
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=0.01; total time=  38.8s
+[CV] END .............C=100, coef0=0.0, degree=2, gamma=auto; total time=  46.6s
+[CV] END ..............C=100, coef0=0.0, degree=2, gamma=0.1; total time= 1.0min
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=scale; total time=  37.2s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=auto; total time=  35.9s
+[CV] END ..............C=100, coef0=0.0, degree=3, gamma=0.1; total time=  37.5s
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=0.001; total time= 9.7min
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=scale; total time=  44.2s
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=auto; total time=  44.8s
+[CV] END ..............C=100, coef0=0.0, degree=5, gamma=0.1; total time=  38.4s
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=0.01; total time= 6.9min
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=0.001; total time=10.9min
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=0.001; total time= 1.1min
+[CV] END ..............C=100, coef0=1.0, degree=3, gamma=0.1; total time=  35.1s
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=scale; total time=  32.6s
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=auto; total time=  34.3s
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=0.01; total time=  37.9s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=auto; total time=  32.8s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=0.01; total time=  35.6s
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=scale; total time= 3.3min
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=0.001; total time=12.3min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=0.01; total time=11.3min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=auto; total time= 5.0min
+[CV] END ............C=0.1, coef0=0.0, degree=4, gamma=0.001; total time=11.4min
+[CV] END ..............C=0.1, coef0=0.0, degree=5, gamma=0.1; total time= 2.1min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=0.001; total time=11.4min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=0.001; total time= 8.5min
+[CV] END ............C=0.1, coef0=0.5, degree=3, gamma=0.001; total time= 9.4min
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=auto; total time= 1.5min
+[CV] END ..............C=0.1, coef0=0.5, degree=5, gamma=0.1; total time=  50.8s
+[CV] END .............C=0.1, coef0=0.5, degree=5, gamma=0.01; total time= 5.8min
+[CV] END ............C=0.1, coef0=1.0, degree=2, gamma=scale; total time= 1.5min
+[CV] END ..............C=0.1, coef0=1.0, degree=2, gamma=0.1; total time= 1.2min
+[CV] END .............C=0.1, coef0=1.0, degree=2, gamma=0.01; total time= 3.3min
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=scale; total time= 1.2min
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=auto; total time= 1.2min
+[CV] END ..............C=0.1, coef0=1.0, degree=3, gamma=0.1; total time=  51.5s
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=0.01; total time= 2.7min
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=scale; total time=  54.9s
+[CV] END .............C=0.1, coef0=1.0, degree=4, gamma=auto; total time=  55.0s
+[CV] END ..............C=0.1, coef0=1.0, degree=4, gamma=0.1; total time=  39.8s
+[CV] END ............C=0.1, coef0=1.0, degree=4, gamma=0.001; total time= 6.1min
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=scale; total time= 1.3min
+[CV] END ...............C=1, coef0=0.0, degree=2, gamma=auto; total time= 1.3min
+[CV] END ................C=1, coef0=0.0, degree=2, gamma=0.1; total time=  56.7s
+[CV] END ..............C=1, coef0=0.0, degree=2, gamma=0.001; total time=11.1min
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=0.001; total time=11.4min
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=scale; total time= 2.5min
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=scale; total time= 2.5min
+[CV] END ...............C=1, coef0=0.0, degree=5, gamma=auto; total time= 2.4min
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=0.001; total time=10.9min
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=scale; total time=  45.5s
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=auto; total time=  45.3s
+[CV] END ................C=1, coef0=0.5, degree=3, gamma=0.1; total time=  35.1s
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=0.001; total time= 4.4min
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=0.001; total time= 5.4min
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=auto; total time=  48.2s
+[CV] END ................C=1, coef0=1.0, degree=2, gamma=0.1; total time=  41.0s
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=0.01; total time= 1.5min
+[CV] END ..............C=1, coef0=1.0, degree=2, gamma=0.001; total time= 3.2min
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=scale; total time=  33.7s
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=auto; total time=  33.9s
+[CV] END ................C=1, coef0=1.0, degree=4, gamma=0.1; total time=  31.7s
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=0.01; total time= 1.1min
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=scale; total time=  32.8s
+[CV] END ................C=1, coef0=1.0, degree=5, gamma=0.1; total time=  31.5s
+[CV] END ...............C=1, coef0=1.0, degree=5, gamma=0.01; total time= 1.0min
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=scale; total time=  45.0s
+[CV] END ..............C=10, coef0=0.0, degree=2, gamma=auto; total time=  45.2s
+[CV] END ...............C=10, coef0=0.0, degree=2, gamma=0.1; total time=  41.3s
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=0.001; total time= 9.5min
+[CV] END ...............C=10, coef0=0.0, degree=4, gamma=0.1; total time=  42.0s
+[CV] END ...............C=10, coef0=0.0, degree=4, gamma=0.1; total time=  42.1s
+[CV] END .............C=10, coef0=0.0, degree=4, gamma=0.001; total time=11.9min
+[CV] END .............C=10, coef0=0.0, degree=5, gamma=0.001; total time=11.6min
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=auto; total time=  32.6s
+[CV] END ...............C=10, coef0=0.5, degree=4, gamma=0.1; total time=  32.3s
+[CV] END .............C=10, coef0=0.5, degree=4, gamma=0.001; total time= 2.4min
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=scale; total time=  36.2s
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=auto; total time=  36.2s
+[CV] END ...............C=10, coef0=1.0, degree=2, gamma=0.1; total time=  34.9s
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=0.001; total time= 1.7min
+[CV] END ...............C=10, coef0=1.0, degree=3, gamma=0.1; total time=  32.3s
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=0.001; total time= 1.5min
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=0.001; total time= 1.4min
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=0.01; total time=  39.6s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=scale; total time=  46.9s
+[CV] END ..............C=100, coef0=0.0, degree=2, gamma=0.1; total time= 1.1min
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=scale; total time=  35.6s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=auto; total time=  35.9s
+[CV] END .............C=100, coef0=0.0, degree=3, gamma=0.01; total time= 1.7min
+[CV] END ............C=100, coef0=0.0, degree=3, gamma=0.001; total time=10.5min
+[CV] END .............C=100, coef0=0.0, degree=5, gamma=0.01; total time= 7.5min
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=scale; total time=  39.8s
+[CV] END ..............C=100, coef0=0.5, degree=2, gamma=0.1; total time=  51.8s
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=0.01; total time=  41.3s
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=0.001; total time= 1.2min
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=auto; total time=  31.6s
+[CV] END ..............C=100, coef0=0.5, degree=3, gamma=0.1; total time=  32.9s
+[CV] END ............C=100, coef0=0.5, degree=3, gamma=0.001; total time= 1.2min
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=auto; total time=  31.0s
+[CV] END .............C=100, coef0=0.5, degree=4, gamma=0.01; total time=  37.8s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=0.001; total time= 1.2min
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=0.01; total time=  36.1s
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=scale; total time=  43.8s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=auto; total time=  43.7s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=0.01; total time=  45.8s
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=auto; total time=  35.2s
+[CV] END ..............C=100, coef0=1.0, degree=3, gamma=0.1; total time=  34.4s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=0.001; total time=  59.6s
+[CV] END ..............C=100, coef0=1.0, degree=4, gamma=0.1; total time=  34.5s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=scale; total time=  33.1s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=auto; total time=  33.0s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=0.01; total time=  35.8s
+[CV] END ..............C=0.1, coef0=0.0, degree=2, gamma=0.1; total time= 2.0min
+[CV] END ..............C=0.1, coef0=0.0, degree=2, gamma=0.1; total time= 2.0min
+[CV] END ............C=0.1, coef0=0.0, degree=2, gamma=0.001; total time=12.0min
+[CV] END .............C=0.1, coef0=0.0, degree=3, gamma=0.01; total time=11.0min
+[CV] END .............C=0.1, coef0=0.0, degree=4, gamma=auto; total time= 4.8min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=scale; total time= 5.5min
+[CV] END ............C=0.1, coef0=0.0, degree=5, gamma=scale; total time= 5.2min
+[CV] END ..............C=0.1, coef0=0.0, degree=5, gamma=0.1; total time= 2.1min
+[CV] END .............C=0.1, coef0=0.0, degree=5, gamma=0.01; total time=11.0min
+[CV] END ..............C=0.1, coef0=0.5, degree=2, gamma=0.1; total time= 1.3min
+[CV] END ............C=0.1, coef0=0.5, degree=2, gamma=0.001; total time= 8.2min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=scale; total time= 1.5min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=scale; total time= 1.4min
+[CV] END .............C=0.1, coef0=0.5, degree=4, gamma=auto; total time= 1.4min
+[CV] END ............C=0.1, coef0=0.5, degree=4, gamma=0.001; total time= 9.4min
+[CV] END ............C=0.1, coef0=0.5, degree=5, gamma=0.001; total time=10.5min
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=scale; total time= 1.1min
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=auto; total time= 1.2min
+[CV] END .............C=0.1, coef0=1.0, degree=3, gamma=0.01; total time= 2.6min
+[CV] END ............C=0.1, coef0=1.0, degree=3, gamma=0.001; total time= 6.5min
+[CV] END .............C=0.1, coef0=1.0, degree=5, gamma=0.01; total time= 2.1min
+[CV] END ............C=0.1, coef0=1.0, degree=5, gamma=0.001; total time= 5.6min
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=scale; total time= 1.4min
+[CV] END ..............C=1, coef0=0.0, degree=3, gamma=scale; total time= 1.4min
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=auto; total time= 1.4min
+[CV] END ................C=1, coef0=0.0, degree=3, gamma=0.1; total time=  48.6s
+[CV] END ...............C=1, coef0=0.0, degree=3, gamma=0.01; total time= 7.9min
+[CV] END ...............C=1, coef0=0.0, degree=4, gamma=auto; total time= 2.0min
+[CV] END ................C=1, coef0=0.0, degree=4, gamma=0.1; total time=  57.1s
+[CV] END ..............C=1, coef0=0.0, degree=4, gamma=0.001; total time=11.3min
+[CV] END ................C=1, coef0=0.0, degree=5, gamma=0.1; total time= 1.0min
+[CV] END ..............C=1, coef0=0.0, degree=5, gamma=0.001; total time=11.4min
+[CV] END ..............C=1, coef0=0.5, degree=3, gamma=scale; total time=  44.9s
+[CV] END ................C=1, coef0=0.5, degree=3, gamma=0.1; total time=  37.4s
+[CV] END ...............C=1, coef0=0.5, degree=3, gamma=0.01; total time= 1.9min
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=scale; total time=  43.4s
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=auto; total time=  43.3s
+[CV] END ...............C=1, coef0=0.5, degree=4, gamma=0.01; total time= 1.9min
+[CV] END ..............C=1, coef0=0.5, degree=4, gamma=0.001; total time= 5.5min
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=auto; total time=  49.6s
+[CV] END ...............C=1, coef0=1.0, degree=2, gamma=0.01; total time= 1.6min
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=scale; total time=  39.4s
+[CV] END ..............C=1, coef0=1.0, degree=3, gamma=scale; total time=  39.7s
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=auto; total time=  38.6s
+[CV] END ................C=1, coef0=1.0, degree=3, gamma=0.1; total time=  34.6s
+[CV] END ...............C=1, coef0=1.0, degree=3, gamma=0.01; total time= 1.3min
+[CV] END ...............C=1, coef0=1.0, degree=4, gamma=auto; total time=  35.6s
+[CV] END ................C=1, coef0=1.0, degree=4, gamma=0.1; total time=  32.2s
+[CV] END ..............C=1, coef0=1.0, degree=4, gamma=0.001; total time= 2.7min
+[CV] END ..............C=1, coef0=1.0, degree=5, gamma=0.001; total time= 2.6min
+[CV] END .............C=10, coef0=0.0, degree=2, gamma=0.001; total time= 9.4min
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=auto; total time=  59.3s
+[CV] END ..............C=10, coef0=0.0, degree=4, gamma=0.01; total time= 7.8min
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=auto; total time= 1.2min
+[CV] END ...............C=10, coef0=0.0, degree=5, gamma=0.1; total time=  42.8s
+[CV] END ..............C=10, coef0=0.0, degree=5, gamma=0.01; total time= 9.3min
+[CV] END ...............C=10, coef0=0.5, degree=2, gamma=0.1; total time=  35.5s
+[CV] END ..............C=10, coef0=0.5, degree=2, gamma=0.01; total time=  58.2s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=scale; total time=  32.6s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=scale; total time=  32.9s
+[CV] END ..............C=10, coef0=0.5, degree=3, gamma=auto; total time=  31.4s
+[CV] END ...............C=10, coef0=0.5, degree=3, gamma=0.1; total time=  30.8s
+[CV] END .............C=10, coef0=0.5, degree=3, gamma=0.001; total time= 2.1min
+[CV] END ..............C=10, coef0=0.5, degree=4, gamma=0.01; total time=  53.9s
+[CV] END .............C=10, coef0=0.5, degree=5, gamma=scale; total time=  31.8s
+[CV] END ...............C=10, coef0=0.5, degree=5, gamma=0.1; total time=  34.1s
+[CV] END ..............C=10, coef0=0.5, degree=5, gamma=0.01; total time= 1.0min
+[CV] END .............C=10, coef0=1.0, degree=2, gamma=scale; total time=  36.8s
+[CV] END ...............C=10, coef0=1.0, degree=2, gamma=0.1; total time=  35.2s
+[CV] END ..............C=10, coef0=1.0, degree=2, gamma=0.01; total time=  53.1s
+[CV] END .............C=10, coef0=1.0, degree=3, gamma=scale; total time=  30.9s
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=auto; total time=  31.7s
+[CV] END ..............C=10, coef0=1.0, degree=3, gamma=0.01; total time=  45.7s
+[CV] END .............C=10, coef0=1.0, degree=4, gamma=scale; total time=  30.5s
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=auto; total time=  30.0s
+[CV] END ..............C=10, coef0=1.0, degree=4, gamma=0.01; total time=  40.9s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=scale; total time=  29.9s
+[CV] END ..............C=10, coef0=1.0, degree=5, gamma=auto; total time=  29.6s
+[CV] END .............C=10, coef0=1.0, degree=5, gamma=0.001; total time= 1.3min
+[CV] END ..............C=100, coef0=0.0, degree=2, gamma=0.1; total time=  58.7s
+[CV] END ............C=100, coef0=0.0, degree=2, gamma=0.001; total time= 4.8min
+[CV] END .............C=100, coef0=0.0, degree=4, gamma=auto; total time=  41.7s
+[CV] END ..............C=100, coef0=0.0, degree=4, gamma=0.1; total time=  39.5s
+[CV] END ............C=100, coef0=0.0, degree=4, gamma=0.001; total time=11.1min
+[CV] END ............C=100, coef0=0.0, degree=5, gamma=0.001; total time=11.1min
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=scale; total time=  31.5s
+[CV] END ..............C=100, coef0=0.5, degree=5, gamma=0.1; total time=  34.3s
+[CV] END ............C=100, coef0=0.5, degree=5, gamma=0.001; total time= 1.4min
+[CV] END ..............C=100, coef0=1.0, degree=2, gamma=0.1; total time=  57.1s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=scale; total time=  33.8s
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=auto; total time=  33.8s
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=0.01; total time=  37.9s
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=auto; total time=  32.1s
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=0.01; total time=  35.5s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=scale; total time=  33.0s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=auto; total time=  33.8s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=0.001; total time=  54.9s
+[CV] END .............C=100, coef0=0.5, degree=2, gamma=auto; total time=  41.5s
+[CV] END ..............C=100, coef0=0.5, degree=2, gamma=0.1; total time=  48.5s
+[CV] END ............C=100, coef0=0.5, degree=2, gamma=0.001; total time= 1.1min
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=auto; total time=  32.2s
+[CV] END ..............C=100, coef0=0.5, degree=3, gamma=0.1; total time=  33.3s
+[CV] END .............C=100, coef0=0.5, degree=3, gamma=0.01; total time=  37.7s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=scale; total time=  30.3s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=scale; total time=  31.8s
+[CV] END ..............C=100, coef0=0.5, degree=4, gamma=0.1; total time=  33.1s
+[CV] END ............C=100, coef0=0.5, degree=4, gamma=0.001; total time= 1.2min
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=auto; total time=  32.2s
+[CV] END .............C=100, coef0=0.5, degree=5, gamma=0.01; total time=  35.6s
+[CV] END ............C=100, coef0=1.0, degree=2, gamma=scale; total time=  41.0s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=auto; total time=  40.4s
+[CV] END .............C=100, coef0=1.0, degree=2, gamma=0.01; total time=  41.4s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=scale; total time=  34.1s
+[CV] END .............C=100, coef0=1.0, degree=3, gamma=auto; total time=  34.0s
+[CV] END ............C=100, coef0=1.0, degree=3, gamma=0.001; total time=  56.5s
+[CV] END .............C=100, coef0=1.0, degree=4, gamma=auto; total time=  31.1s
+[CV] END ............C=100, coef0=1.0, degree=4, gamma=0.001; total time=  54.2s
+[CV] END ..............C=100, coef0=1.0, degree=5, gamma=0.1; total time=  32.7s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=0.001; total time=  53.2s
+[CV] END .............C=100, coef0=1.0, degree=5, gamma=0.01; total time=  35.0s
+[CV] END ............C=100, coef0=1.0, degree=5, gamma=0.001; total time=  52.3s

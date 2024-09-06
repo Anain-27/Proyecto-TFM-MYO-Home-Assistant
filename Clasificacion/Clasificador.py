@@ -12,7 +12,7 @@ import joblib
 # Definir el path de los datos de entrada
 #path = '/home/scuser/Proyecto-TFM-MYO-Home-Assistant/Preprocesado/datos_procesados/Gestos_seleccionados/'
 path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados\\Gestos_seleccionados\\'
-
+#path = '/content/drive/My Drive/TFM/Preprocesado/datos_procesados/Gestos_seleccionados/'
 # Obtener todos los archivos Datos_Limpios_*.xlsx
 file_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')
 files = glob.glob(file_pattern)
@@ -21,6 +21,7 @@ files = glob.glob(file_pattern)
 df = pd.DataFrame()
 
 # Leer y combinar todos los archivos en un solo DataFrame
+print("Comienzo a leer los archivos")
 for file in files:
     df_temp = pd.read_excel(file)
     df = pd.concat([df, df_temp], ignore_index=True)
@@ -72,7 +73,7 @@ param_grid = {
 # Entrenar el clasificador
 print('Comienza el entrenamiento')
 # Crear y entrenar el modelo con GridSearchCV para encontrar los mejores hiperparámetros
-grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=10)
+grid = GridSearchCV(model, param_grid, cv=3, refit=True, verbose=2, n_jobs=20)
 grid.fit(X_train_sample, y_train_sample)
 
 # Guardar el modelo
