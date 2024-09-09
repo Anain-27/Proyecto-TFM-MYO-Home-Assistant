@@ -11,8 +11,9 @@ import glob
 import matplotlib.pyplot as plt
 from collections import Counter
 
-# Definir el path de los datos de entrada
+# Definir el path de los datos de entrada y salida
 path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Preprocesado\\datos_procesados\\Gestos_seleccionados\\'
+path_out = '/Pruebas/Prueba funcionamiento clasificador/Clasificadores de pruebas'
 
 # Capturar todos los archivos que comienzan con 'Datos_Limpios_'
 files_pattern = os.path.join(path, 'Datos_Limpios_*.xlsx')
@@ -34,9 +35,21 @@ df.dropna(inplace=True)
 tamano_muestra_inicial = len(df)
 print(f"Tamaño de la muestra inicial: {tamano_muestra_inicial}")
 
-# Separar características (X) de etiquetas (y)
-X = df.iloc[:, :-1].values
-y = df.iloc[:, -1].values
+# Definir el tamaño límite por etiqueta
+label_size = 100  # Cambia este valor según lo que necesites
+
+# Limitar el número de datos por cada etiqueta
+df_limited = df.groupby(df.columns[-1], group_keys=False).apply(lambda x: x.sample(min(len(x), label_size)))
+
+# Verificar que se han reducido correctamente las muestras por etiqueta
+contador_etiquetas_limited = Counter(df_limited.iloc[:, -1].values)
+print("Cantidad de datos por etiqueta después de limitar:")
+for etiqueta, cantidad in contador_etiquetas_limited.items():
+    print(f"{etiqueta}: {cantidad}")
+
+# Separar características (X) de etiquetas (y) con el DataFrame limitado
+X = df_limited.iloc[:, :-1].values
+y = df_limited.iloc[:, -1].values
 
 # Imprimir la cantidad de datos por etiqueta en el conjunto completo
 contador_etiquetas = Counter(y)
@@ -60,12 +73,12 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Guardar el scaler
-scaler_path = os.path.join(path, 'scaler.pkl')
+scaler_path = os.path.join(path_out, 'scaler_18.pkl')
 joblib.dump(scaler, scaler_path)
 print(f"Scaler guardado como '{scaler_path}'")
 
 # Crear clasificador SVM con núcleo polinomial
-model = SVC(C=100, coef0=1.0, degree=5, gamma=0.1, kernel='poly')
+model = SVC(C=1, coef0=1.0, degree=5, gamma=0.1, kernel='poly')
 
 # Medir el tiempo de entrenamiento
 start_time = time.time()
@@ -79,7 +92,7 @@ training_time = time.time() - start_time
 print(f'Tiempo de entrenamiento: {training_time:.2f} segundos')
 
 # Guardar el modelo entrenado
-model_path = os.path.join(path, 'prueba_mejores_parametros.pkl')
+model_path = os.path.join(path_out, 'clasificador_muy_pocos_datos.pkl')
 joblib.dump(model, model_path)
 print(f"Modelo guardado como '{model_path}'")
 
