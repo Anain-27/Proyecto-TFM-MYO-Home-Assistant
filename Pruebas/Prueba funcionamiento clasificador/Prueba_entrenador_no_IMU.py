@@ -8,15 +8,15 @@ import os
 # Lista de gestos a probar
 #gestos = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']
 #gestos = [ 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'I','JUNTOS', 'L', 'REST', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']
-#gestos = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT']
-gestos = ['BAJAR_DIAL', 'TRES', 'CRUZAR_DEDOS', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT']
+#gestos = ['C','I','L', 'JUNTOS','UNO','DOS','TRES','CUATRO']
+
 
 # Cargar el clasificador y el escalador preentrenados desde tu path
-clasificador = joblib.load('Clasificadores de pruebas/Clasificadores/clasificador_5000_no_IMU_9_TRES.pkl')
-escalador = joblib.load('Clasificadores de pruebas/Escaladores/scaler_5000_no_IMU_9_TRES.pkl')
+clasificador = joblib.load('Clasificadores de pruebas/Clasificadores/clasificador_50000_no_IMU_17_param.pkl')
+escalador = joblib.load('Clasificadores de pruebas/Escaladores/scaler_50000.pkl')
 
 # Definir la ruta del archivo de resultados
-excel_path = 'resultados_pruebas.xlsx'
+excel_path = 'resultados_memoria.xlsx'
 
 
 def limpieza(emg_data):
@@ -91,7 +91,7 @@ def main():
         print("Myo desconectado.")
 
     # Guardar resultados en el archivo Excel
-    nombre_hoja = '5000_no_IMU_9_TRES'
+    nombre_hoja = '50000_no_IMU_17_C_100'
 
     if not os.path.exists(excel_path):
         # Si el archivo no existe, crearlo con los datos iniciales

@@ -1,18 +1,19 @@
 import time
 import numpy as np
 import joblib
+import pandas as pd
 from pyomyo import Myo, emg_mode
+import os
 
-# Lista de gestos
-etiquetas_deseadas = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I', 'JUNTOS',
-                      'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN',
-                      'WAVE_OUT']  # Cambia esto a las etiquetas que necesites
+# Lista de gestos a probar
+gestos = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']
 
 # Cargar el clasificador y el escalador preentrenados desde tu path
-clasificador = joblib.load(
-    'Clasificadores de pruebas\\Clasificadores\\clasificador_50000_3_gestos_grid_param.pkl')
-escalador = joblib.load(
-    'Clasificadores de pruebas\\Escaladores\\scaler_50000.pkl')
+clasificador = joblib.load('Clasificadores de pruebas/Clasificadores/clasificador_50000_17_C_100.pkl')
+escalador = joblib.load('Clasificadores de pruebas/Escaladores/scaler_50000.pkl')
+
+# Definir la ruta del archivo de resultados
+excel_path = 'resultados_memoria.xlsx'
 
 
 def limpieza(datos_combinados):
@@ -29,6 +30,10 @@ def clasificar_emg_imu(datos_combinados):
 
 
 def main():
+    # Solicitar la posición del brazo
+    posicion_brazo = input("Introduce la posición del brazo (Estirado, 90 grados, Mano Abajo, Mano Arriba, Natural): ")
+
+    # Conectar al Myo
     myo = Myo(mode=emg_mode.FILTERED)
     myo.connect()
 
@@ -50,42 +55,37 @@ def main():
     myo.vibrate(1)
 
     tiempo_total = 5  # Tiempo para cada gesto en segundos
-    aciertos_totales = 0
-    total_gestos = len(gestos)
-    total_predicciones = 0
+    resultados = {gesto: [] for gesto in gestos}
+    detecciones_intervalo = []
 
     try:
         for gesto in gestos:
-            print(f"{gesto}")
+            print(f"Dos segundos de descanso, luego gesto {gesto}")
             time.sleep(2)
             print(f"Realiza el gesto: {gesto}")
             tiempo_inicio = time.time()
-            aciertos = 0
-            total_predicciones=0
+            detecciones = {g: 0 for g in gestos}
+            total_predicciones = 0
+
             while time.time() - tiempo_inicio < tiempo_total:
                 myo.run()
-                tiempo_actual = time.time() - tiempo_inicio
                 if emg_data is not None and imu_data is not None:
                     combined_data = np.concatenate((emg_data, imu_data), axis=None)
                     etiqueta = clasificar_emg_imu(combined_data)
-                    print(etiqueta)
-
-                    if etiqueta == gesto:
-                        aciertos += 1
-
+                    if etiqueta in detecciones:
+                        detecciones[etiqueta] += 1
                     total_predicciones += 1
-                else:
-                    print("Esperando datos de Myo...")
 
-            if total_predicciones > 0:
-                porcentaje_aciertos = (aciertos / total_predicciones) * 100
-            else:
-                porcentaje_aciertos = 0
+            # Calcular porcentaje de aciertos para el gesto actual
+            porcentaje_aciertos = (detecciones[gesto] / total_predicciones)  if total_predicciones > 0 else 0
+            resultados[gesto].append(porcentaje_aciertos)
 
-            aciertos_totales += porcentaje_aciertos
+            # Determinar el gesto más detectado
+            gesto_mas_detectado = max(detecciones, key=detecciones.get)
+            detecciones_intervalo.append(gesto_mas_detectado)
 
-            print(f"Gesto {gesto} completado. Porcentaje de aciertos: {porcentaje_aciertos:.2f}%")
-            print(f"Descansa 2 segundos y realiza el siguiente gesto:")
+            print(f"Gesto {gesto} completado. Porcentaje de aciertos: {porcentaje_aciertos*100:.2f}%")
+            print(f"Gesto más detectado: {gesto_mas_detectado}")
 
     except KeyboardInterrupt:
         print("Interrupción del usuario, finalizando...")
@@ -93,8 +93,35 @@ def main():
         myo.disconnect()
         print("Myo desconectado.")
 
-        promedio_aciertos = aciertos_totales / total_gestos
-        print(f"Porcentaje promedio de aciertos: {promedio_aciertos:.2f}%")
+    # Guardar resultados en el archivo Excel
+    nombre_hoja = '50000_IMU_17_C_100'
+
+    if not os.path.exists(excel_path):
+        # Si el archivo no existe, crearlo con los datos iniciales
+        df_resultados = pd.DataFrame(resultados)
+        df_resultados.index = [f'{posicion_brazo}']
+        df_detecciones_intervalo = pd.DataFrame([detecciones_intervalo], columns=gestos)
+        df_detecciones_intervalo.index = [f'gesto_mas_detectado']
+
+        df_final = pd.concat([df_resultados, df_detecciones_intervalo], axis=0)
+        df_final.to_excel(excel_path, sheet_name=nombre_hoja)
+    else:
+        # Si el archivo ya existe, cargarlo y actualizar los resultados
+        with pd.ExcelWriter(excel_path, mode='a', if_sheet_exists='overlay') as writer:
+            try:
+                df_existente = pd.read_excel(excel_path, sheet_name=nombre_hoja, index_col=0)
+            except ValueError:
+                df_existente = pd.DataFrame()
+
+            df_resultados = pd.DataFrame(resultados)
+            df_resultados.index = [f'{posicion_brazo}']
+            df_detecciones_intervalo = pd.DataFrame([detecciones_intervalo], columns=gestos)
+            df_detecciones_intervalo.index = [f'gesto_mas_detectado']
+
+            df_final = pd.concat([df_existente, df_resultados, df_detecciones_intervalo], axis=0)
+            df_final.to_excel(writer, sheet_name=nombre_hoja)
+
+        print(f"Resultados guardados en la hoja '{nombre_hoja}' para la posición de brazo: {posicion_brazo}")
 
 
 if __name__ == '__main__':

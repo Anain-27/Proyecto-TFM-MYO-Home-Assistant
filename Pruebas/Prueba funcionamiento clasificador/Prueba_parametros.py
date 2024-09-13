@@ -14,7 +14,7 @@ path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Pr
 path_out = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Pruebas\\Prueba funcionamiento clasificador\\Clasificadores de pruebas\\'
 
 # Leer los datos preprocesados desde el archivo Excel
-data_file = os.path.join(path, 'Datos_5000_17_gestos.xlsx')
+data_file = os.path.join(path, 'Datos_5000_8_gestos_SIN_CRUZAR.xlsx')
 df = pd.read_excel(data_file)
 print(f'Datos cargados desde {data_file}.')
 
@@ -22,7 +22,7 @@ print(f'Datos cargados desde {data_file}.')
 df.dropna(inplace=True)
 
 # Separar características (X) de etiquetas (y)
-X = df.iloc[:, :8].values
+X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
 
 # Imprimir la cantidad de datos por etiqueta
@@ -40,7 +40,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Guardar el scaler
-scaler_path = os.path.join(path_out, 'Escaladores\\scaler_5000_param.pkl')
+scaler_path = os.path.join(path_out, 'Escaladores\\scaler_5000_8_SIN_CRUZAR_DEDOS_param.pkl')
 joblib.dump(scaler, scaler_path)
 print(f"Scaler guardado como '{scaler_path}'")
 
@@ -56,7 +56,7 @@ param_grid = {
 svc = SVC()
 
 # Búsqueda de hiperparámetros con GridSearchCV
-grid_search = GridSearchCV(svc, param_grid, cv=5, verbose=2)
+grid_search = GridSearchCV(svc, param_grid, cv=3, verbose=2, n_jobs=10)
 start_time = time.time()
 grid_search.fit(X_train_scaled, y_train)
 training_time = time.time() - start_time
@@ -71,6 +71,6 @@ y_pred = best_model.predict(X_test_scaled)
 print(classification_report(y_test, y_pred))
 
 # Guardar el mejor modelo
-model_path = os.path.join(path_out, 'Clasificadores\\clasificador_5000_17_gestos_param.pkl')
+model_path = os.path.join(path_out, 'Clasificadores\\clasificador_5000_8_SIN_CRUZAR_DEDOS_param.pkl')
 joblib.dump(best_model, model_path)
 print(f"Modelo guardado como '{model_path}'")

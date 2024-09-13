@@ -15,7 +15,7 @@ path = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Pr
 path_out = 'C:\\Users\\anita\\Documents\\GitHub\\Proyecto-TFM-MYO-Home-Assistant\\Pruebas\\Prueba funcionamiento clasificador\\Clasificadores de pruebas\\'
 
 # Definir el nombre del archivo Excel con los datos preprocesados
-data_file = os.path.join(path, 'Datos_50000_8_gestos_SIN_CRUZAR.xlsx')
+data_file = os.path.join(path, 'Datos_50000_17_gestos.xlsx')
 
 # Leer los datos preprocesados desde el archivo Excel
 df = pd.read_excel(data_file)
@@ -50,12 +50,12 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Guardar el scaler
-scaler_path = os.path.join(path_out, 'Escaladores\\scaler_50000_no_IMU_8_SIN_CRUZAR_mejor.pkl')
-joblib.dump(scaler, scaler_path)
+scaler_path = os.path.join(path_out, 'Escaladores\\scaler_prueba.pkl')
+#joblib.dump(scaler, scaler_path)
 print(f"Scaler guardado como '{scaler_path}'")
 
 # Crear clasificador SVM con núcleo polinomial
-model = SVC(C=1, coef0=1.0, degree=3, gamma='auto', kernel='poly')
+model = SVC(C=0.1, coef0=1.0, degree=5, gamma= 0.1, kernel='poly')
 # Medir el tiempo de entrenamiento
 start_time = time.time()
 
@@ -68,8 +68,8 @@ training_time = time.time() - start_time
 print(f'Tiempo de entrenamiento: {training_time:.2f} segundos')
 
 # Guardar el modelo entrenado
-model_path = os.path.join(path_out, 'Clasificadores\\clasificador_50000_no_IMU_8_SIN_CRUZAR_mejor.pkl')
-joblib.dump(model, model_path)
+model_path = os.path.join(path_out, 'Clasificadores\\clasificador_50000_IMU_17_C_01.pkl')
+#joblib.dump(model, model_path)
 print(f"Modelo guardado como '{model_path}'")
 
 # Realizar predicciones en el conjunto de prueba
@@ -80,13 +80,13 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"\nPrecisión del modelo: {accuracy:.2f}")
 
 # Generar y mostrar el informe de clasificación
-report = classification_report(y_test, y_pred, target_names=['BAJAR_DIAL', 'TRES', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT'])
+report = classification_report(y_test, y_pred, target_names=['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT'])
 
 print("\nInforme de clasificación:")
 print(report)
 
 # Dibujar la matriz de confusión
-ConfusionMatrixDisplay.from_estimator(model, X_test_scaled, y_test, display_labels= ['BAJAR_DIAL', 'TRES', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT'])
+ConfusionMatrixDisplay.from_estimator(model, X_test_scaled, y_test, display_labels= ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT'])
 
 plt.title("Matriz de Confusión")
 plt.show()

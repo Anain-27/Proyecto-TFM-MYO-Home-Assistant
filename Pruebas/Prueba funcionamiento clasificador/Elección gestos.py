@@ -28,13 +28,13 @@ else:
     df.dropna(inplace=True)
 
     # Definir el tamaño límite por etiqueta
-    label_size = 5000  # Cambia este valor según lo que necesites
+    label_size = 50000  # Cambia este valor según lo que necesites
 
     # Especificar las etiquetas que deseas incluir
-    #etiquetas_deseadas = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']  # Cambia esto a las etiquetas que necesites
-    etiquetas_deseadas = ['BAJAR_DIAL', 'CRUZAR_DEDOS', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT']
+    # etiquetas_deseadas = ['BAJAR_DIAL', 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST', 'GIRO_IN', 'GIRO_OUT', 'I','JUNTOS', 'L', 'REST', 'SUBIR_DIAL', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']  # Cambia esto a las etiquetas que necesites
+    #etiquetas_deseadas = ['BAJAR_DIAL', 'CRUZAR_DEDOS', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT']
     #etiquetas_deseadas = [ 'C', 'CRUZAR_DEDOS', 'CUATRO', 'DOS', 'FIST',  'I','JUNTOS', 'L', 'REST', 'TRES', 'UNO', 'WAVE_IN', 'WAVE_OUT']  # Cambia esto a las etiquetas que necesites
-
+    etiquetas_deseadas = ['BAJAR_DIAL', 'CRUZAR_DEDOS','TRES', 'FIST', 'GIRO_OUT', 'REST', 'UNO', 'WAVE_IN', 'WAVE_OUT']
 
     # Filtrar el DataFrame para incluir solo las etiquetas deseadas
     df_filtrado = df[df[df.columns[-1]].isin(etiquetas_deseadas)]
@@ -49,6 +49,6 @@ else:
         print(f"{etiqueta}: {cantidad}")
 
     # Guardar el nuevo DataFrame en un archivo Excel
-    output_file = os.path.join(path_out, f'Datos_{label_size}_{len(etiquetas_deseadas)}_gestos_SIN_TRES.xlsx')
+    output_file = os.path.join(path_out, f'Datos_capa_dispositivos_50000.xlsx')
     df_limited.to_excel(output_file, index=False)
     print(f"Datos limitados guardados en '{output_file}'")
