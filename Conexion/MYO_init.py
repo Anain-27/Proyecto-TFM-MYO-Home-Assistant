@@ -7,7 +7,7 @@ from joblib import load
 from sklearn.preprocessing import StandardScaler
 
 # Configuración para la solicitud HTTP
-base_url = 'http://192.168.142.137:8123'
+base_url = 'http://192.168.8.137:8123'
 token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlMWI5ODc3NThmYjI0ZDhjYTA4ZTY3ZGU4Y2IzZDZhNiIsImlhdCI6MTcyNjA5MTQxOSwiZXhwIjoyMDQxNDUxNDE5fQ.OgRT3vg7dRxqe3vuRqG211gSfsTDEQ6VaWpSfUuv7yk'
 headers = {
     'Authorization': f'Bearer {token}',
@@ -185,9 +185,9 @@ def trabajador_datos(modo, t_captura_total):
     while time.time() - tiempo_inicio < t_captura_total:
         try:
             myo.run()
+
             if myo.emg_data is not None:
                 etiqueta = classify_emg(myo.emg_data, clasificador_CRUZAR)
-                print(f"Etiqueta clasificada: {etiqueta}")
                 decisiones.append(etiqueta)
                 if buscando_cruzar_dedos:
                     verificar = verificar_cruzar_dedos(decisiones)
